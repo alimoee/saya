@@ -1,4 +1,0 @@
-ccxt
-Flask
-requests
-web3
