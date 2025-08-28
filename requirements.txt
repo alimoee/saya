@@ -1,1 +1,4 @@
-ccxt==4.5.2
+ccxt
+Flask
+requests
+web3

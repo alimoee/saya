@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تنظیمات ربات</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        nav a { margin: 0 10px; text-decoration: none; color: #3498db; }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 15px; font-weight: bold; }
+        input, textarea { padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        button { background-color: #3498db; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
+        .message { padding: 10px; border-radius: 5px; margin-bottom: 20px; background-color: #e8f5e9; color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">داشبورد</a>
+            <a href="/settings">تنظیمات</a>
+            <a href="/wallets">مدیریت ولت‌ها</a>
+        </nav>
+        <hr>
+        <h1>تنظیمات ربات</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/settings" method="post">
+            <label for="exchanges">صرافی‌ها (جدا شده با کاما):</label>
+            <textarea id="exchanges" name="exchanges" rows="3">{{ config.exchanges | join(', ') }}</textarea>
+
+            <label for="symbol_to_watch">جفت ارز:</label>
+            <input type="text" id="symbol_to_watch" name="symbol_to_watch" value="{{ config.symbol_to_watch }}">
+
+            <label for="min_profit_percentage">حداقل درصد سود:</label>
+            <input type="number" step="0.01" id="min_profit_percentage" name="min_profit_percentage" value="{{ config.min_profit_percentage }}">
+
+            <label for="loop_delay_seconds">تاخیر بین چرخه (ثانیه):</label>
+            <input type="number" id="loop_delay_seconds" name="loop_delay_seconds" value="{{ config.loop_delay_seconds }}">
+
+            <label for="default_taker_fee">کارمزد پیش‌فرض:</label>
+            <input type="number" step="0.0001" id="default_taker_fee" name="default_taker_fee" value="{{ config.default_taker_fee }}">
+
+            <button type="submit">ذخیره</button>
+        </form>
+    </div>
+</body>
+</html>

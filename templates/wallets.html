@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مدیریت ولت‌ها</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+        nav a { margin: 0 10px; text-decoration: none; color: #3498db; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        .remove-btn { color: #e74c3c; text-decoration: none; }
+        form { margin-top: 20px; }
+        input[type="text"] { padding: 10px; width: 60%; }
+        button { background-color: #3498db; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">داشبورد</a>
+            <a href="/settings">تنظیمات</a>
+            <a href="/wallets">مدیریت ولت‌ها</a>
+        </nav>
+        <hr>
+        <h1>مدیریت ولت‌ها</h1>
+        <h2>اضافه کردن ولت جدید</h2>
+        <form action="/add_wallet" method="post">
+            <label for="wallet_name">نام:</label>
+            <input type="text" id="wallet_name" name="wallet_name" required>
+            <label for="wallet_address">آدرس:</label>
+            <input type="text" id="wallet_address" name="wallet_address" required>
+            <button type="submit">اضافه کردن</button>
+        </form>
+        <h2>ولت‌های ذخیره شده</h2>
+        <table>
+            <tr>
+                <th>نام</th>
+                <th>آدرس</th>
+                <th>موجودی (ETH)</th>
+                <th>عملیات</th>
+            </tr>
+            {% for wallet in wallets %}
+            <tr>
+                <td>{{ wallet.name }}</td>
+                <td>{{ wallet.address }}</td>
+                <td>{{ wallet.balance if wallet.balance is not none else 'N/A' }}</td>
+                <td><a href="/remove_wallet/{{ wallet.address }}" class="remove-btn">حذف</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

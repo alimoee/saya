@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>داشبورد ربات</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        nav a { margin: 0 10px; text-decoration: none; color: #3498db; }
+        .status-box { padding: 10px; border-radius: 5px; margin: 20px 0; font-weight: bold; }
+        .status-running { background-color: #e8f5e9; color: #2e7d32; }
+        .status-stopped { background-color: #ffebee; color: #c62828; }
+        .controls a { text-decoration: none; color: #fff; padding: 10px 15px; border-radius: 5px; }
+        .start-btn { background-color: #4CAF50; }
+        .stop-btn { background-color: #f44336; }
+        .logs { background-color: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; height: 400px; overflow-y: scroll; white-space: pre-wrap; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">داشبورد</a>
+            <a href="/settings">تنظیمات</a>
+            <a href="/wallets">مدیریت ولت‌ها</a>
+        </nav>
+        <hr>
+        <h1>داشبورد ربات آربیتراژ</h1>
+
+        <div id="status-box" class="status-box">
+            وضعیت ربات: <span id="status-text">در حال بارگذاری...</span>
+        </div>
+
+        <div class="controls">
+            <a href="/start_bot" class="start-btn">شروع</a>
+            <a href="/stop_bot" class="stop-btn">توقف</a>
+        </div>
+
+        <h2>لاگ‌های زنده</h2>
+        <pre id="logs-container" class="logs">در حال بارگذاری...</pre>
+    </div>
+
+    <script>
+        const statusBox = document.getElementById('status-box');
+        const statusText = document.getElementById('status-text');
+        const logsContainer = document.getElementById('logs-container');
+
+        async function updateStatus() {
+            const response = await fetch('/api/status');
+            const data = await response.json();
+            statusText.textContent = data.status;
+            if (data.status === 'Running') {
+                statusBox.className = 'status-box status-running';
+            } else {
+                statusBox.className = 'status-box status-stopped';
+            }
+        }
+
+        async function updateLogs() {
+            const response = await fetch('/api/logs');
+            const text = await response.text();
+            logsContainer.textContent = text;
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        }
+
+        // Initial load
+        updateStatus();
+        updateLogs();
+
+        // Update every 5 seconds
+        setInterval(updateStatus, 5000);
+        setInterval(updateLogs, 5000);
+    </script>
+</body>
+</html>
