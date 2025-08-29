@@ -6,15 +6,18 @@
 #property copyright "Copyright 2024, Jules The AI"
 
 #include <Arrays\ArrayDouble.mqh>
+#include <Arrays\ArrayObj.mqh>
 
-struct S_PivotPoint
+// --- Struct to hold pivot point data ---
+class CPivotPoint : public CObject
 {
+public:
     datetime time;
     double price;
 };
 
 //+------------------------------------------------------------------+
-//| CSupportResistance Class                                         |
+//| CSupportResistance Class (Corrected Version)                     |
 //+------------------------------------------------------------------+
 class CSupportResistance
 {
@@ -24,19 +27,18 @@ private:
     int m_prd;      // Lookback period
     int m_pivot_bars; // left/right bars for pivot detection
 
-    // --- Buffers and Data ---
+    // --- Data ---
     CArrayDouble *m_sr_levels;
 
-    // --- Handles ---
-    int m_fractals_up_handle;
-    int m_fractals_down_handle;
+    // --- Private Helper ---
+    void FindPivots(CArrayObj *pivots, int rates_total, const double &high[], const double &low[]);
 
 public:
     CSupportResistance(void);
     ~CSupportResistance(void);
 
     bool Init(int strength, int prd, int pivot_bars);
-    int Calculate(int rates_total, const MqlRates &rates[]);
+    int Calculate(int rates_total, const double &high[], const double &low[]);
 
     CArrayDouble* GetLevels() { return m_sr_levels; }
 };
@@ -50,105 +52,123 @@ CSupportResistance::~CSupportResistance(void)
 {
     if(CheckPointer(m_sr_levels) == POINTER_DYNAMIC)
         delete m_sr_levels;
-    IndicatorRelease(m_fractals_up_handle);
-    IndicatorRelease(m_fractals_down_handle);
 }
-
 
 bool CSupportResistance::Init(int strength, int prd, int pivot_bars)
 {
     m_strength = strength;
     m_prd = prd;
-    m_pivot_bars = pivot_bars; // This corresponds to 'rb' in Pine
-
-    // In MQL5, iFractals uses a fixed 2-bar left/right shoulder. We will use this as an approximation.
-    // A more precise implementation would require manual pivot detection.
-    m_fractals_up_handle = iFractals(_Symbol, _Period, MODE_UPPER);
-    m_fractals_down_handle = iFractals(_Symbol, _Period, MODE_LOWER);
-
-    return(m_fractals_up_handle != INVALID_HANDLE && m_fractals_down_handle != INVALID_HANDLE);
+    m_pivot_bars = pivot_bars;
+    return(true);
 }
 
-int CSupportResistance::Calculate(int rates_total, const MqlRates &rates[])
+int CSupportResistance::Calculate(int rates_total, const double &high[], const double &low[])
 {
     if(rates_total < m_prd) return 0;
 
-    m_sr_levels.Clear();
+    m_sr_levels->Clear();
 
-    // --- Get all pivots from the last m_prd bars ---
+    // --- 1. Find all pivots in the lookback period ---
     CArrayObj *all_pivots = new CArrayObj();
-    double up_frac[], down_frac[];
-    ArrayResize(up_frac, m_prd);
-    ArrayResize(down_frac, m_prd);
+    all_pivots->SetFreeMode(true); // Important: Array will delete the CPivotPoint objects
+    FindPivots(all_pivots, rates_total, high, low);
 
-    CopyBuffer(m_fractals_up_handle, 0, 1, m_prd, up_frac);
-    CopyBuffer(m_fractals_down_handle, 0, 1, m_prd, down_frac);
-
-    for(int i=0; i<m_prd; i++)
-    {
-        if(up_frac[i] > 0)
-        {
-            S_PivotPoint *p = new S_PivotPoint();
-            p.price = up_frac[i];
-            p.time = rates[rates_total-1-i].time;
-            all_pivots.Add(p);
-        }
-        if(down_frac[i] > 0)
-        {
-            S_PivotPoint *p = new S_PivotPoint();
-            p.price = down_frac[i];
-            p.time = rates[rates_total-1-i].time;
-            all_pivots.Add(p);
-        }
-    }
-
-    // --- Optimized Clustering Logic ---
+    // --- 2. Optimized Clustering Logic ---
     bool used_pivots[];
-    ArrayResize(used_pivots, all_pivots.Total());
+    ArrayResize(used_pivots, all_pivots->Total());
     ArrayInitialize(used_pivots, false);
 
-    double prd_high = 0, prd_low = 999999;
-    for(int i=0; i<m_prd; i++)
+    double prd_high = high[rates_total-1];
+    double prd_low = low[rates_total-1];
+    for(int i=1; i<m_prd; i++)
     {
-       if(rates[rates_total-1-i].high > prd_high) prd_high = rates[rates_total-1-i].high;
-       if(rates[rates_total-1-i].low < prd_low) prd_low = rates[rates_total-1-i].low;
+       if(high[rates_total-1-i] > prd_high) prd_high = high[rates_total-1-i];
+       if(low[rates_total-1-i] < prd_low) prd_low = low[rates_total-1-i];
     }
     double channel_width = (prd_high - prd_low) * 0.10; // ChannelW = 10%
 
-    for(int i=0; i<all_pivots.Total(); i++)
+    for(int i=0; i<all_pivots->Total(); i++)
     {
         if(used_pivots[i]) continue;
 
-        S_PivotPoint *pivot1 = all_pivots.At(i);
-        double upper_channel = pivot1.price + channel_width;
-        double lower_channel = pivot1.price - channel_width;
+        CPivotPoint *pivot1 = all_pivots->At(i);
+        if(CheckPointer(pivot1) != POINTER_DYNAMIC) continue;
+
+        double upper_channel = pivot1->price + channel_width;
+        double lower_channel = pivot1->price - channel_width;
 
         int points_in_channel = 0;
         CArrayInt *channel_indices = new CArrayInt();
 
-        for(int j=0; j<all_pivots.Total(); j++)
+        for(int j=0; j<all_pivots->Total(); j++)
         {
-            S_PivotPoint *pivot2 = all_pivots.At(j);
-            if(pivot2.price >= lower_channel && pivot2.price <= upper_channel)
+            CPivotPoint *pivot2 = all_pivots->At(j);
+            if(CheckPointer(pivot2) != POINTER_DYNAMIC) continue;
+
+            if(pivot2->price >= lower_channel && pivot2->price <= upper_channel)
             {
                 points_in_channel++;
-                channel_indices.Add(j);
+                channel_indices->Add(j);
             }
         }
 
         if(points_in_channel >= m_strength)
         {
-            m_sr_levels.Add(pivot1.price);
-            // Mark all pivots in this channel as used
-            for(int k=0; k<channel_indices.Total(); k++)
+            m_sr_levels->Add(pivot1->price);
+            for(int k=0; k<channel_indices->Total(); k++)
             {
-                used_pivots[channel_indices.At(k)] = true;
+                used_pivots[channel_indices->At(k)] = true;
             }
         }
         delete channel_indices;
     }
 
     delete all_pivots;
-    return m_sr_levels.Total();
+    return m_sr_levels->Total();
+}
+
+// --- Manual Pivot Detection to match Pine Script's ta.pivothigh/low ---
+void CSupportResistance::FindPivots(CArrayObj *pivots, int rates_total, const double &high[], const double &low[])
+{
+    // Look from the start of the lookback period up to the present
+    int start_idx = rates_total - m_prd;
+    if(start_idx < m_pivot_bars) start_idx = m_pivot_bars;
+
+    for(int i = start_idx; i < rates_total - m_pivot_bars; i++)
+    {
+        // Check for Pivot High
+        bool is_ph = true;
+        for(int j=1; j<=m_pivot_bars; j++)
+        {
+            if(high[i] < high[i-j] || high[i] <= high[i+j])
+            {
+                is_ph = false;
+                break;
+            }
+        }
+        if(is_ph)
+        {
+            CPivotPoint *p = new CPivotPoint();
+            p->price = high[i];
+            pivots->Add(p);
+        }
+
+        // Check for Pivot Low
+        bool is_pl = true;
+        for(int j=1; j<=m_pivot_bars; j++)
+        {
+            if(low[i] > low[i-j] || low[i] >= low[i+j])
+            {
+                is_pl = false;
+                break;
+            }
+        }
+        if(is_pl)
+        {
+            CPivotPoint *p = new CPivotPoint();
+            p->price = low[i];
+            pivots->Add(p);
+        }
+    }
 }
 //+------------------------------------------------------------------+

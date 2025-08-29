@@ -6,7 +6,7 @@
 #property copyright "Copyright 2024, Jules The AI"
 
 //+------------------------------------------------------------------+
-//| CSuperIchi Class                                                 |
+//| CSuperIchi Class (Corrected Version)                             |
 //+------------------------------------------------------------------+
 class CSuperIchi
 {
@@ -14,6 +14,11 @@ private:
     // --- Settings ---
     int m_tenkan_len, m_kijun_len, m_spanB_len;
     double m_tenkan_mult, m_kijun_mult, m_spanB_mult;
+
+    // --- Indicator Handles ---
+    int m_atr_tenkan_handle;
+    int m_atr_kijun_handle;
+    int m_atr_spanB_handle;
 
     // --- Buffers ---
     double m_tenkan_buf[];
@@ -24,11 +29,12 @@ private:
     int m_rates_total;
 
     // --- Private Helper Methods ---
-    void CalculateAvg(const double &price[], const double &hl2[], int length, double mult, double &avg_buffer[]);
+    void CalculateAvg(const double &price[], const double &hl2[], int atr_handle, double mult, double &avg_buffer[]);
 
 public:
     CSuperIchi(void);
-    bool Init(int tenkan_len, double tenkan_mult, int kijun_len, double kijun_mult, int spanB_len, double spanB_mult);
+    ~CSuperIchi(void);
+    bool Init(string symbol, ENUM_TIMEFRAMES timeframe, int tenkan_len, double tenkan_mult, int kijun_len, double kijun_mult, int spanB_len, double spanB_mult);
     int Calculate(int rates_total, const double &close[], const double &hl2[]);
 
     // --- Access Methods ---
@@ -38,18 +44,33 @@ public:
     double GetSenkouB(int shift) { if(shift < m_rates_total) return m_senkouB_buf[shift]; return 0; }
 };
 
-CSuperIchi::CSuperIchi(void) : m_rates_total(0)
+CSuperIchi::CSuperIchi(void) : m_rates_total(0), m_atr_tenkan_handle(INVALID_HANDLE),
+                               m_atr_kijun_handle(INVALID_HANDLE), m_atr_spanB_handle(INVALID_HANDLE)
 {
 }
 
-bool CSuperIchi::Init(int tenkan_len, double tenkan_mult, int kijun_len, double kijun_mult, int spanB_len, double spanB_mult)
+CSuperIchi::~CSuperIchi(void)
 {
-    m_tenkan_len = tenkan_len;
-    m_tenkan_mult = tenkan_mult;
-    m_kijun_len = kijun_len;
-    m_kijun_mult = kijun_mult;
-    m_spanB_len = spanB_len;
-    m_spanB_mult = spanB_mult;
+    IndicatorRelease(m_atr_tenkan_handle);
+    IndicatorRelease(m_atr_kijun_handle);
+    IndicatorRelease(m_atr_spanB_handle);
+}
+
+bool CSuperIchi::Init(string symbol, ENUM_TIMEFRAMES timeframe, int tenkan_len, double tenkan_mult, int kijun_len, double kijun_mult, int spanB_len, double spanB_mult)
+{
+    m_tenkan_len = tenkan_len; m_tenkan_mult = tenkan_mult;
+    m_kijun_len = kijun_len; m_kijun_mult = kijun_mult;
+    m_spanB_len = spanB_len; m_spanB_mult = spanB_mult;
+
+    m_atr_tenkan_handle = iATR(symbol, timeframe, m_tenkan_len);
+    m_atr_kijun_handle = iATR(symbol, timeframe, m_kijun_len);
+    m_atr_spanB_handle = iATR(symbol, timeframe, m_spanB_len);
+
+    if(m_atr_tenkan_handle==INVALID_HANDLE || m_atr_kijun_handle==INVALID_HANDLE || m_atr_spanB_handle==INVALID_HANDLE)
+    {
+        printf("CSuperIchi::Init - Failed to create ATR handles");
+        return false;
+    }
     return(true);
 }
 
@@ -63,9 +84,9 @@ int CSuperIchi::Calculate(int rates_total, const double &close[], const double &
     ArrayResize(m_senkouA_buf, rates_total);
     ArrayResize(m_senkouB_buf, rates_total);
 
-    CalculateAvg(close, hl2, m_tenkan_len, m_tenkan_mult, m_tenkan_buf);
-    CalculateAvg(close, hl2, m_kijun_len, m_kijun_mult, m_kijun_buf);
-    CalculateAvg(close, hl2, m_spanB_len, m_spanB_mult, m_senkouB_buf);
+    CalculateAvg(close, hl2, m_atr_tenkan_handle, m_tenkan_mult, m_tenkan_buf);
+    CalculateAvg(close, hl2, m_atr_kijun_handle, m_kijun_mult, m_kijun_buf);
+    CalculateAvg(close, hl2, m_atr_spanB_handle, m_spanB_mult, m_senkouB_buf);
 
     for(int i=0; i<rates_total; i++)
     {
@@ -75,26 +96,20 @@ int CSuperIchi::Calculate(int rates_total, const double &close[], const double &
     return rates_total;
 }
 
-void CSuperIchi::CalculateAvg(const double &price[], const double &hl2[], int length, double mult, double &avg_buffer[])
+void CSuperIchi::CalculateAvg(const double &price[], const double &hl2[], int atr_handle, double mult, double &avg_buffer[])
 {
     int rates_total = ArraySize(price);
-    int atr_handle = iATR(_Symbol, _Period, length);
     double atr_buf[];
     ArrayResize(atr_buf, rates_total);
     CopyBuffer(atr_handle, 0, 0, rates_total, atr_buf);
-    IndicatorRelease(atr_handle);
 
     double upper_band[], lower_band[];
     ArrayResize(upper_band, rates_total);
     ArrayResize(lower_band, rates_total);
 
-    int os[];
-    ArrayResize(os, rates_total);
-    double max_val[], min_val[];
-    ArrayResize(max_val, rates_total);
-    ArrayResize(min_val, rates_total);
-    double spt[];
-    ArrayResize(spt, rates_total);
+    int os[]; ArrayResize(os, rates_total);
+    double max_val[], min_val[]; ArrayResize(max_val, rates_total); ArrayResize(min_val, rates_total);
+    double spt[]; ArrayResize(spt, rates_total);
 
     for(int i=1; i<rates_total; i++)
     {
