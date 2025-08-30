@@ -14,6 +14,7 @@ show_rev = input.bool(true, 'Reversal Cloud    ', inline = 'overlayLine4', group
 Show_rangefilter = input.bool(true, 'Range Filter', inline = 'overlayLine4', group = 'Settings')
 Show_SuperIchi = input.bool(true, 'SuperIchi      ', inline = 'overlayLine5', group = 'Settings')
 Show_TBO = input.bool(true, 'Show TBO', inline = 'overlayLine5', group = 'Settings')
+Show_EMA200 = input.bool(true, 'Show EMA 200 Filter', inline = 'overlayLine6', group = 'Settings')
 
 // Strategy Settings
 use_stop_loss = input.bool(true, "Use Stop Loss", group="Strategy Settings")
@@ -74,6 +75,7 @@ sma14 = ta.sma(close, 18)
 sma15 = ta.sma(close, 19)
 sma16 = ta.sma(close, 20)
 psar = ta.sar(0.02, 0.02, 0.2)
+ema200 = ta.ema(close, 200)
 
 [supertrend, direction] = supertrend(close, sensitivity, 11)
 
@@ -90,13 +92,14 @@ red = #b4060d, red2 = #ff0002
 
 p5 = plot(ocAvg, "", na, editable=false)
 p6 = plot(psar, "PSAR", usePsar ? (psar < ocAvg ? green : red) : na, 1, plot.style_circles, editable=false)
+plot(Show_EMA200 ? ema200 : na, "EMA 200", color.new(color.white, 0), 2)
 fill(p5, p6, usePsar ? (psar < ocAvg ? color.new(green, 90) : color.new(red, 90)) : na, editable=false)
 
 y1 = low - (ta.atr(30) * 2)
 y2 = high + (ta.atr(30) * 2)
 
-bull = ta.crossover(close, supertrend) and close >= sma9
-bear = ta.crossunder(close, supertrend) and close <= sma9
+bull = ta.crossover(close, supertrend) and close >= sma9 and close > ema200
+bear = ta.crossunder(close, supertrend) and close <= sma9 and close < ema200
 
 buy  = bull ? label.new(bar_index, y1, "▲", xloc.bar_index, yloc.price, #04994b, label.style_label_up, color.white, size.normal) : na
 sell = bear ? label.new(bar_index, y2, "▼", xloc.bar_index, yloc.price, #b4060d, label.style_label_down, color.white, size.normal) : na
