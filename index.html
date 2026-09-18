@@ -1,4 +1,241 @@
-روی همین صفحه، دکمه «Add file ▼» (سبز) → Create new file
-کادر اسم: index.html
-کادر بزرگ: کد سایت را از پیام «# 📄 کد کامل index.html» پیست کن
-پایین: Commit changes (سبز)
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080c12">
+<title>سایا — چراغ جادوی کسب‌وکار | بازار بیداره!</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+:root{--o:#f59e0b;--o2:#ea580c;--gd:#fbbf24;--dk:#080c12;--dk2:#0f151d;--cd:#131b25;--ln:#242f3c;--tx:#e9eef4;--mu:#8f9cab;--gr:#22c55e}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--dk);color:var(--tx);overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;border:none}
+a{text-decoration:none;color:inherit}
+.w{max-width:1140px;margin:0 auto;padding:0 16px}
+nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdrop-filter:blur(16px);border-bottom:1px solid var(--ln)}
+.nr{display:flex;align-items:center;gap:12px;padding:10px 0}
+.lg{display:flex;align-items:center;gap:9px;font-weight:900;font-size:19px;color:var(--gd)}
+.lg small{font-size:9px;color:var(--mu);display:block;font-weight:700}
+.lg svg{animation:lp 2.4s infinite}
+@keyframes lp{0%,100%{filter:drop-shadow(0 0 3px #fbbf2477)}50%{filter:drop-shadow(0 0 14px #fbbf24)}}
+.lgs{margin-inline-start:auto;display:flex;gap:2px;background:var(--cd);border:1px solid var(--ln);border-radius:99px;padding:3px}
+.lgs button{background:none;color:var(--mu);font-size:12px;font-weight:800;padding:4px 11px;border-radius:99px}
+.lgs button.on{background:var(--o);color:#1a1208}
+.nc{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;font-size:13px;border-radius:12px;padding:9px 18px;transition:.2s}
+.nc:hover{transform:translateY(-2px)}
+@media(max-width:700px){.lgs{display:none}}
+.hr{padding:112px 0 44px;position:relative;overflow:hidden}
+.hr::before{content:'';position:absolute;inset:0;background:radial-gradient(760px 380px at 50% -80px,#f59e0b28,transparent)}
+.aw{text-align:center;font-size:12.5px;font-weight:800;letter-spacing:3px;color:var(--mu);margin-bottom:12px}
+.dg{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gr);box-shadow:0 0 10px var(--gr);animation:bk 1.8s infinite;margin-inline-end:6px}
+@keyframes bk{50%{opacity:.35}}
+h1{text-align:center;font-size:clamp(26px,5.2vw,50px);font-weight:900;line-height:1.45}
+.gl{background:linear-gradient(90deg,var(--o),var(--gd),var(--o2));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 4s linear infinite}
+@keyframes sh{to{background-position:200%}}
+.hs{text-align:center;color:var(--mu);font-size:clamp(13.5px,2.2vw,17px);margin:14px auto 24px;max-width:620px}
+.hb{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.b1{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;font-size:15px;border-radius:14px;padding:13px 30px;box-shadow:0 10px 30px #f59e0b4d;transition:.25s}
+.b1:hover{transform:translateY(-3px)}
+.b2{border:1.5px solid var(--ln);color:var(--tx);font-weight:800;border-radius:14px;padding:13px 22px;background:#ffffff08;transition:.25s}
+.b2:hover{border-color:var(--o);color:var(--o)}
+.stt{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.stt div{background:#ffffff08;border:1px solid var(--ln);border-radius:13px;padding:10px 18px}
+.stt b{font-size:clamp(18px,2.8vw,24px);font-weight:900;color:var(--o);display:block}
+.stt span{font-size:11px;color:var(--mu)}
+.ph{position:relative;width:min(215px,58vw);margin:44px auto 0;aspect-ratio:9/17;border-radius:26px;border:3px solid #2b3745;background:linear-gradient(165deg,#111923,#1c2632);box-shadow:0 26px 70px #000a,0 0 60px #f59e0b26;overflow:visible}
+.ph .in{position:absolute;inset:16px;border-radius:16px;background:linear-gradient(180deg,#f59e0b14,#0b0f14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow:hidden}
+.ph .in .em{font-size:32px}
+.ph .in .t{font-size:11px;font-weight:900}
+.ph .in .k{background:var(--gr);color:#03130a;font-size:9px;font-weight:900;border-radius:99px;padding:3px 10px;animation:pp 2.6s infinite}
+@keyframes pp{12%{transform:scale(1.14)}}
+.chip{position:absolute;background:#141d28f2;border:1px solid var(--ln);border-radius:12px;padding:8px 12px;font-size:11px;font-weight:800;box-shadow:0 10px 26px #0007;white-space:nowrap;animation:fl 5s ease-in-out infinite alternate}
+.chip i{font-style:normal;margin-inline-end:5px}
+.chip .v{color:var(--gr)}
+.c1{top:8%;inset-inline-end:-38%;animation-delay:.3s}
+.c2{top:40%;inset-inline-start:-46%;animation-delay:1.4s}
+.c3{bottom:10%;inset-inline-end:-30%;animation-delay:2.4s}
+@media(max-width:860px){.c1{inset-inline-end:-8%}.c2{inset-inline-start:-8%}.c3{inset-inline-end:-4%}}
+.smk{position:absolute;bottom:-6px;inset-inline-end:-70px;width:90px;height:130px;pointer-events:none;opacity:.8}
+.smk i{position:absolute;bottom:0;inset-inline-start:50%;width:14px;height:14px;border-radius:50%;background:#fbbf2430;filter:blur(6px);animation:sm 4s infinite}
+@keyframes sm{0%{transform:translate(-50%,0) scale(.6);opacity:0}25%{opacity:.8}100%{transform:translate(calc(-50% + var(--x)),-110px) scale(2.2);opacity:0}}
+.rays{position:absolute;inset:-30px;pointer-events:none}
+.rays i{position:absolute;bottom:16%;inset-inline-start:50%;width:3px;height:24px;border-radius:3px;background:linear-gradient(var(--gd),transparent);opacity:0;animation:ry 3s infinite}
+@keyframes ry{0%{opacity:0;transform:translate(-50%,0) rotate(var(--r))}18%{opacity:.95}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),-140px) rotate(var(--r))}}
+.pain{background:var(--dk2);border-block:1px solid var(--ln);padding:17px 0;overflow:hidden}
+.tk{display:flex;gap:36px;width:max-content;animation:mv 34s linear infinite}
+@keyframes mv{to{transform:translateX(50%)}}
+.tk span{font-size:13.5px;color:var(--mu);white-space:nowrap}
+.tk em{font-style:normal;color:var(--o);font-weight:900}
+section{padding:62px 0}
+.st{text-align:center;margin-bottom:34px}
+.st .tg{display:inline-block;font-size:11px;font-weight:800;color:var(--o);border:1px solid #f59e0b55;background:#f59e0b10;border-radius:99px;padding:4px 15px;margin-bottom:11px}
+.st h2{font-size:clamp(20px,3.9vw,32px);font-weight:900}
+.st p{color:var(--mu);margin-top:7px;font-size:14px}
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;max-width:760px;margin:0 auto}
+.bx{background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:22px 18px;text-align:center}
+.bx .big{font-size:40px}
+.bx h4{font-size:14.5px;font-weight:900;margin:8px 0 4px}
+.bx p{font-size:11.5px;color:var(--mu)}
+.bx.old{filter:saturate(.35);opacity:.75}
+.bx.new{border-color:#f59e0b66;box-shadow:0 0 34px #f59e0b1f}
+.arw{font-size:30px;color:var(--o);animation:bk 1.6s infinite}
+@media(max-width:640px){.ba{grid-template-columns:1fr}.arw{transform:rotate(90deg)}}
+.ft{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:15px}
+.fd{background:var(--cd);border:1px solid var(--ln);border-radius:15px;padding:21px;transition:.3s;position:relative;overflow:hidden}
+.fd::before{content:'';position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--o),transparent);opacity:0;transition:.3s}
+.fd:hover{transform:translateY(-5px);border-color:#f59e0b55}
+.fd:hover::before{opacity:1}
+.fd .fi{font-size:27px}
+.fd h3{font-size:14.5px;font-weight:900;margin:7px 0 5px}
+.fd p{font-size:12.5px;color:var(--mu)}
+.pr3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;align-items:stretch}
+.p3{background:var(--cd);border:1px solid var(--ln);border-radius:19px;padding:24px 20px;text-align:center;position:relative;transition:.3s}
+.p3.hot{border:2px solid var(--o);box-shadow:0 14px 44px #f59e0b24;transform:scale(1.03)}
+.p3 .b2{position:absolute;top:-12px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-size:10px;font-weight:900;border-radius:99px;padding:3px 15px;white-space:nowrap}
+.p3 h3{font-size:16px;font-weight:900}
+.p3 .pp{font-size:26px;font-weight:900;color:var(--o);margin:9px 0 0}
+.p3 .pp small{font-size:11px;color:var(--mu);font-weight:400}
+.p3 ul{list-style:none;margin:14px 0;text-align:start}
+.p3 li{font-size:12px;padding:5.5px 0;color:var(--mu);border-bottom:1px dashed #ffffff12}
+.p3 li::before{content:'✓ ';color:var(--gr);font-weight:900}
+.p3 li.lk::before{content:'🔒 ';color:var(--mu)}
+.pb{display:block;background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;border-radius:11px;padding:10px;font-size:13px;transition:.2s}
+.pb:hover{transform:translateY(-2px)}
+.p3:not(.hot) .pb{background:#ffffff12;color:var(--tx)}
+.lst{background:radial-gradient(700px 340px at 50% 120%,#f59e0b2e,transparent),var(--dk2);text-align:center;border-block:1px solid var(--ln)}
+.lst h2{font-size:clamp(21px,4.2vw,36px);font-weight:900}
+.lst h2 em{font-style:normal;color:var(--o)}
+footer{padding:28px 0;text-align:center;color:var(--mu);font-size:11.5px}
+.rv{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+#fab{position:fixed;bottom:18px;inset-inline-start:14px;z-index:90;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8e0,var(--gd),#b45309);font-size:24px;display:grid;place-items:center;box-shadow:0 8px 24px #fbbf2455;animation:lp 2.6s infinite}
+</style>
+</head>
+<body>
+  <nav><div class="w nr">
+  <div class="lg"><svg width="25" height="25" viewBox="0 0 64 64"><path d="M32 4a14 14 0 0 1 14 14c0 6-4 9-6 13H24c-2-4-6-7-6-13A14 14 0 0 1 32 4z" fill="#fbbf24"/><path d="M26 34h12v8H26z" fill="#b45309"/><rect x="24" y="44" width="16" height="14" rx="4" fill="#d97706"/><circle cx="32" cy="18" r="5" fill="#fff8e0"/></svg>
+  <span>سایا<small>چراغ جادوی کسب‌وکار</small></span></div>
+  <div class="lgs"><button class="on" onclick="setL('fa')">فا</button><button onclick="setL('en')">EN</button><button onclick="setL('ar')">AR</button></div>
+  <a class="nc" href="#contact">مشاوره رایگان</a>
+</div></nav>
+
+<header class="hr"><div class="w">
+  <div class="aw"><span class="dg"></span><b>بازار بیداره!</b></div>
+  <h1>فروشگاه‌ت خواب نداره —<br><span class="gl">منشی‌اش سایا</span> هست، ۲۴ ساعته</h1>
+  <p class="hs">از یک دفتر دست‌نویس تا فروشگاه آنلاین با منشی هوشمند، چانه‌زنی در سقف مجاز تو، ثبت خودکار پیامک بانک و یادآوری مشتری‌های قدیمی — در ۴۸ ساعت.</p>
+  <div class="hb"><a class="b1" href="#live">▶ صحنه‌های زنده</a><a class="b2" href="#contact">مشاوره رایگان</a></div>
+  <div class="stt">
+    <div><b>۲۴/۷</b><span>پاسخگویی منشی</span></div><div><b>۶۰ث</b><span>عکس دفتر → انبار</span></div>
+    <div><b>+۱۲</b><span>صنف آماده</span></div><div><b>۰</b><span>راه‌اندازی منتخب‌ها</span></div>
+  </div>
+  <div class="ph">
+    <div class="rays" id="rays"></div>
+    <div class="in"><div class="em">⚙️</div><div class="t">فروشگاه تو — زنده</div><div class="k">✓ سفارش تأیید شد</div><div style="font-size:9.5px;color:var(--mu)">🚚 ارسال سراسری</div></div>
+    <div class="chip c1"><i>🛒</i>سفارش جدید <span class="v">+۴۵۰ هزار</span></div>
+    <div class="chip c2"><i>💳</i>واریز <b>۲٬۰۰۰٬۰۰۰</b> ثبت شد</div>
+    <div class="chip c3"><i>🔔</i>یادآوری: تماس با احمدی</div>
+  </div>
+</div></header>
+
+<div class="pain"><div class="tk" id="tk"></div></div>
+
+<section id="live" style="background:var(--dk2);border-block:1px solid var(--ln)"><div class="w">
+  <div class="st rv"><span class="tg">▶ خودت ببین</span><h2>چهار صحنه‌ی زنده — بدون حرف، فقط عمل</h2><p>هر صحنه خودش بازی می‌کند. این دقیقاً کاری است که فروشگاه‌ت انجام می‌دهد.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+    <div class="fd rv" style="min-height:200px"><div class="fi">📸</div><h3>عکس دفتر → انبار</h3><p>عکس دفترت را بفرست — ۶۰ ثانیه بعد انبار و قیمت‌ها زنده‌اند. با امتیاز اطمینان؛ مشکوک‌ها ازت سؤال می‌شود، هرگز حدس نمی‌زند.</p></div>
+    <div class="fd rv" style="min-height:200px"><div class="fi">👥</div><h3>لیست مشتری → CRM</h3><p>عکس دفتر مشتریان → پروفایل هر کس با سابقه‌اش. منشی از این به بعد همه را با اسم صدا می‌زند.</p></div>
+    <div class="fd rv" style="min-height:200px"><div class="fi">💳</div><h3>پیامک بانک → دفتر</h3><p>یکبار شماره بانک را تایید کن؛ واریز/برداشت خودکار در دفتر درست ثبت می‌شود. دفتر کار و شخصی، جدا.</p></div>
+    <div class="fd rv" style="min-height:200px"><div class="fi">🤖</div><h3>ربات فروش علی۲</h3><p>لیست بازار را می‌گردد، منتخب‌ها را انتخاب می‌کند و دموی اختصاصی می‌فرستد — خودش می‌فروشد.</p></div>
+  </div>
+  <div class="ba" style="margin-top:30px">
+    <div class="bx old rv"><div class="big">📓</div><h4>دفتر دست‌نویس</h4><p>قیمت‌های قدیمی، مشتری‌های گم‌شده، ساعت ۱۱ شب بدون جواب</p></div>
+    <div class="arw rv">⬅</div>
+    <div class="bx new rv"><div class="big">🛒</div><h4>فروشگاه سایا</h4><p>کاتالوگ زنده، منشی ۲۴ ساعته، پیامک بانک خودکار، گزارش صبح</p></div>
+  </div>
+</div></section>
+
+<section id="inds"><div class="w">
+  <div class="st rv"><span class="tg">🏭 +۱۲ صنف</span><h2>هر صنف، رنگ و روح خودش</h2><p>چرخ‌فلک می‌چرخد — روی صنف‌ت بایست، دموی زنده‌اش باز می‌شود</p></div>
+  <div class="car"><div class="ring" id="ring"></div></div>
+  <div class="cv"><button onclick="rv(-30)">◀</button><button onclick="rv(30)">▶</button></div>
+  <div class="cn">با هاور می‌ایستد — کلیک = دموی زنده با اجناس همان بازار</div>
+</div></section>
+
+<section><div class="w">
+  <div class="st rv"><span class="tg">⚡ امکانات</span><h2>یک همکار دیجیتال، نه یک چت‌بات ساده</h2><p>سایا می‌شناسد، می‌چانه‌زند، می‌فروشد و حساب می‌کند</p></div>
+  <div class="ft">
+    <div class="fd rv"><div class="fi">🧑‍💼</div><h3>منشی ۲۴ ساعته</h3><p>با اسم، جنسیت و لحن دلخواه شما؛ مشتری نیمه‌شب هم جواب می‌گیرد.</p></div>
+    <div class="fd rv"><div class="fi">🤝</div><h3>چانه‌زنی هوشمند</h3><p>تا سقف مجاز شما تخفیف می‌دهد؛ بیشترش را از خودتان می‌پرسد.</p></div>
+    <div class="fd rv"><div class="fi">💼</div><h3>حساب‌کتاب نسیه</h3><p>طلبکار/بدهکار هر مشتری زنده؛ پیگیری بدهی با ادب ایرانی.</p></div>
+    <div class="fd rv"><div class="fi">🔁</div><h3>بازگشت مشتری</h3><p>چرخه خرید هر مشتری را یاد می‌گیرد؛ سر موعد خودش پیام می‌دهد.</p></div>
+    <div class="fd rv"><div class="fi">🎁</div><h3>قیمت‌قفل مشتری ثابت</h3><p>در تورم، قیمت ۵ قلم را ۱۴ روز برای مشتری‌تان قفل می‌کند — امتیاز واقعی.</p></div>
+    <div class="fd rv"><div class="fi">📈</div><h3>مقایسه قیمت بازار</h3><p>قیمت شما در برابر ترب و رقبا — اعتماد مشتری، هشدار به شما.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--dk2);border-block:1px solid var(--ln)"><div class="w">
+  <div class="st rv"><span class="tg">🛠️ مسیر</span><h2>از تماس تا فروشگاه زنده — سه قدم</h2></div>
+  <div class="stp">
+    <div class="sp rv"><h3>فقط اسمت رو بگو</h3><p>نام فروشگاه و صنف‌تان؛ ۴۸ ساعته دموی اختصاصی با اجناس نمونه بازار شما — رایگان.</p></div>
+    <div class="sp rv"><h3>دفترت رو عکس کن</h3><p>عکس دفتر یا ویس بفرست — فردا صبح فروشگاه و انبارت زنده است.</p></div>
+    <div class="sp rv"><h3>بفروش</h3><p>منشی ۲۴ ساعته، سفارش، پرداخت به حساب خودت، گزارش صبح — فقط بار کن.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing" style="background:var(--dk2);border-block:1px solid var(--ln)"><div class="w">
+  <div class="st rv"><span class="tg">💰 تعرفه</span><h2>منصفانه — هر که بامش بیشتر، برفش بیشتر</h2><p>۳ فروشگاه اول هر محله: راه‌اندازی رایگان — آزمون ۱۰ روزه با بررسی هویتی</p></div>
+  <div class="pr3">
+    <div class="p3 rv"><h3>پایه</h3><div class="pp">۲٬۱۰۰<small> هزار / ماه</small></div>
+      <ul><li>۳۰ مشتری فعال</li><li>۵۰ قلم کالا</li><li>۶۰ مکالمه ماهانه</li><li class="lk">ویس و پاسخ صوتی</li><li class="lk">حساب‌کتاب و نسیه</li><li class="lk">گزارش صبحگاهی</li><li class="lk">پل بانکی خودکار</li></ul><a class="pb" href="#contact">شروع</a></div>
+    <div class="p3 hot rv"><div class="b2">⭐ محبوب‌ترین — عمده‌فروش</div><h3>حرفه‌ای</h3><div class="pp">۵٬۳۰۰<small> هزار / ماه</small></div>
+      <ul><li>مشتری نامحدود</li><li>۷۵ قلم کالا</li><li>۲۵۰ تماس</li><li>ویس و پاسخ صوتی</li><li>حساب‌کتاب و CRM کامل</li><li>گزارش صبحگاهی روزانه</li><li>پل بانکی خودکار</li></ul><a class="pb" href="#contact">شروع</a></div>
+    <div class="p3 rv"><h3>تولیدکننده</h3><div class="pp">۱۵٬۰۰۰<small> هزار / ماه</small></div>
+      <ul><li>۱۰۰ مشتری</li><li>کالا نامحدود</li><li>۱۵۰ تماس</li><li>سفارش‌گیری شبکه پخش</li><li>فاکتور رسمی کارخانه</li><li>پل بانکی خودکار</li></ul><a class="pb" href="#contact">شروع</a></div>
+  </div>
+</div></section>
+
+<section class="lst" id="contact"><div class="w" style="padding-top:54px;padding-bottom:50px">
+  <h2>دفترِ <em>شما</em> هم باید بیدار باشه</h2>
+  <p style="color:var(--mu);max-width:540px;margin:14px auto 24px;font-size:14.5px">هر ساعت تعلل، مشتری‌هایتان جایی دیگر خرید می‌کنند. نسخه اختصاصی فروشگاه‌تان ۴۸ ساعته آماده است.</p>
+  <div class="hb"><a class="b1" href="tel:+989155018220">📞 ۰۹۱۵ ۵۰۱ ۸۲۲۰</a><a class="b2" href="https://t.me/ZSELL_SAYA_bot" target="_blank">✈️ تلگرام</a></div>
+</div></section>
+
+<footer>© سایا — چراغ جادوی کسب‌وکار | ساخته‌شده برای بازار ایران 🧞</footer>
+<button id="fab" onclick="location.href='#contact'" title="آرزو کن 🧞">🧞</button>
+
+<script>
+const L={fa:{aw:'بازار بیداره!',h1:'فروشگاه‌ت خواب نداره —<br><span class="gl">منشی‌اش سایا</span> هست، ۲۴ ساعته',hs:'از یک دفتر دست‌نویس تا فروشگاه آنلاین با منشی هوشمند، چانه‌زنی در سقف مجاز تو، ثبت خودکار پیامک بانک و یادآوری مشتری‌های قدیمی — در ۴۸ ساعت.',cs:'هر ساعت تعلل، مشتری‌هایتان جایی دیگر خرید می‌کنند. نسخه اختصاصی فروشگاه‌تان ۴۸ ساعته آماده است.',dir:'rtl'},
+en:{aw:'THE MARKET IS AWAKE!',h1:'Your shop never sleeps —<br><span class="gl">Saya</span> answers, 24/7',hs:'From a handwritten notebook to a full online store with an AI clerk, smart negotiation, auto bank-SMS bookkeeping and customer win-back — in 48 hours.',cs:'Every hour you wait, your customers buy elsewhere. Your custom store is 48 hours away.',dir:'ltr'},
+ar:{aw:'السوق مستيقظ!',h1:'متجرك لا ينام —<br><span class="gl">سايا</span> تردد، ٢٤ ساعة',hs:'من دفتر مكتوب إلى متجر إلكتروني كامل مع موظف مبيعات ذكي — خلال ٤٨ ساعة.',cs:'كل ساعة تأخير، عملاؤك يشترون من مكان آخر. متجرك الخاص بعد ٤٨ ساعة.',dir:'rtl'}};
+function setL(l){const d=L[l];document.body.dir=d.dir;
+aw.querySelector('b').textContent=d.aw;h1.innerHTML=d.h1;hs.textContent=d.hs;cs.textContent=d.cs;
+document.querySelectorAll('.lgs button').forEach((b,i)=>b.classList.toggle('on',i===(l==='fa'?0:l==='en'?1:2)));ring(l);tk(l)}
+const P={fa:['مشتری ساعت ۱۱ شب پیام داد — کسی نبود','قیمت رو صبح عوض کردی، عصر مشتری قیمت قدیم دید','مشتری قدیمی‌ت یادت رفت؛ رقیبت یادش نرفت','دست‌مزد منشی، نصف فروش','پیامک بانک‌ها وسط دفترها گم می‌شن'],
+en:['Customer messaged at 11 PM — nobody answered','Prices changed at dawn; customers saw old ones','You forgot an old customer; your rival did not','A human clerk costs half your profit','Bank SMS get lost between notebooks'],
+ar:['عميل راسل ١١ مساءً — لم يرد أحد','الأسعار تتغير ولا كتالوج','نسيت عميلاً قديماً؛ منافسك لم ينسه','أجر الموظف نصف الأرباح','رسائل البنك تضيع']};
+function tk(l){tkx.innerHTML=[...P[l],...P[l]].map(x=>`<span><em>⚡</em> ${x}</span>`).join('')}
+const I=[['⚙️','#f59e0b',['ابزار و یراق','عمده و پروژه‌ای'],['Tools & Hardware','Wholesale'],['أدوات','جملة'],'tool'],
+['🧴','#0f9d8f',['بهداشتی و آرایشی','خرده و چرخه‌ای'],['Hygiene & Beauty','Retail'],['عناية','قطاعي'],'hyg'],
+['🌾','#7c8f3a',['مواد غذایی','پخش و بورس'],['Food Staples','Bulk'],['مواد غذائية','جملة'],'food'],
+['🚗','#e01e2f',['یدکی خودرو','مکانیک‌محور'],['Auto Parts','Mechanic'],['قطع غيار','ميكانيكي'],'auto'],
+['🌹','#e0608e',['گل و تاج عروس','مراسم و فصلی'],['Flowers & Bridal','Events'],['زهور','مناسبات'],'flow'],
+['🌿','#b08968',['عطاری و زعفران','سنتی و اصیل'],['Herbal & Saffron','Traditional'],['عطارة','تقليدي'],'herb'],
+['📱','#3b82f6',['موبایل و لوازم','گارانتی‌محور'],['Mobile','Warranty'],['هواتف','ضمان'],'mob'],
+['👗','#a855f7',['پوشاک و مانتو','فصلی'],['Apparel','Seasonal'],['ملابس','موسمي'],'clothes'],
+['🧱','#78716c',['مصالح ساختمانی','پیمانکارمحور'],['Construction','Contractor'],['مواد بناء','مقاولين'],'build'],
+['☕','#92400e',['قهوه و کافه','B2B کافه‌ها'],['Coffee & Café','B2B'],['قهوة','مقاهي'],'cafe'],
+['👟','#059669',['کفاشی و چرم','سایز و جفت'],['Shoes & Leather','Sizes'],['أحذية','مقاسات'],'shoe'],
+['💍','#facc15',['طلا و جواهر','اعتمادمحور'],['Gold & Jewelry','Trust'],['ذهب','ثقة'],'gold']];
+let ang=0;
+function ring(l){const gi=l==='fa'?0:l==='en'?1:2,n=I.length,st=360/n,R=320;
+ringx.innerHTML=I.map((x,i)=>`<div class="cc" style="--ic:${x[1]};transform:rotateY(${i*st}deg) translateZ(${R}px)"><span class="em">${x[0]}</span><b>${x[2+gi][0]}</b><small>${x[2+gi][1]}</small><span class="dm">${l==='fa'?'دموی زنده ↗':l==='en'?'Live demo ↗':'عرض حي ↗'}</span></div>`).join('')}
+function rv(d){ang+=d;ringx.style.animation='none';ringx.style.transform=`rotateY(${ang}deg)`;clearTimeout(window._t);window._t=setTimeout(()=>ringx.style.animation='',3000)}
+(function(){let h='';for(let i=0;i<14;i++)h+=`<i style="--r:${(Math.random()*180-90)|0}deg;--dx:${(Math.random()*150-75)|0}px;animation-delay:${(i*.22).toFixed(2)}s"></i>`;rays.innerHTML=h})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+tk('fa');ring('fa');
+</script>
+</body>
+</html>
