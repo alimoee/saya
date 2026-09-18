@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial=1">
-<title>سایا — ورود هوشمند دفتر، فاکتور و مشتریان</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سایا — ورود هوشمند: دفتر، فاکتور، مشتریان (عکس/دوربین/صدا)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <style>
 :root{--o:#f59e0b;--o2:#ea580c;--gd:#fbbf24;--dk:#080c12;--dk2:#0f151d;--cd:#131b25;--ln:#242f3c;--tx:#e9eef4;--mu:#8f9cab;--gr:#22c55e;--rd:#ef4444;--yl:#eab308;--bl:#3b82f6}
@@ -14,16 +15,34 @@ nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdro
 .nr{display:flex;align-items:center;gap:10px;padding:10px 0}
 .bk{color:var(--mu);font-size:12.5px;font-weight:800}.bk:hover{color:var(--o)}
 .lg{font-weight:900;color:var(--gd);margin-inline-start:auto}
-.hd{padding:84px 0 18px;text-align:center}
+.hd{padding:82px 0 16px;text-align:center}
 .hd h1{font-size:clamp(20px,3.8vw,30px);font-weight:900}
-.hd p{color:var(--mu);font-size:13px;margin-top:6px}
-.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:24px 0}
-.tb{background:var(--cd);border:1.5px solid var(--ln);color:var(--mu);font-size:12.5px;font-weight:800;border-radius:99px;padding:10px 20px;transition:.25s}
+.hd p{color:var(--mu);font-size:13px;margin-top:6px;line-height:2}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.tb{background:var(--cd);border:1.5px solid var(--ln);color:var(--mu);font-size:12.5px;font-weight:800;border-radius:99px;padding:10px 19px;transition:.25s}
 .tb.on{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;border-color:transparent}
 .stg{display:none}.stg.on{display:block;animation:fi .4s}
 @keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1}}
-.priv{display:flex;align-items:center;gap:7px;justify-content:center;font-size:10.5px;color:var(--mu);margin-bottom:16px}
+.priv{display:flex;align-items:center;gap:7px;justify-content:center;font-size:10.5px;color:var(--mu);margin-bottom:14px}
 .priv b{color:var(--gr)}
+/* ورودی دوگانه */
+.in2{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:0 auto 16px}
+@media(max-width:560px){.in2{grid-template-columns:1fr}}
+.inb{border-radius:16px;padding:22px 14px;text-align:center;font-weight:900;font-size:14.5px;cursor:pointer;transition:.25s}
+.inb:hover{transform:translateY(-3px)}
+.inb1{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;box-shadow:0 10px 30px #f59e0b40}
+.inb2{background:var(--cd);color:var(--tx);border:1.5px solid var(--ln)}
+.inb2:hover{border-color:var(--o)}
+.inb .ic{font-size:32px;display:block;margin-bottom:6px}
+.inb small{display:block;font-size:10.5px;font-weight:400;color:inherit;opacity:.75;margin-top:3px}
+/* پردازش */
+.proc{max-width:560px;margin:0 auto;text-align:center;background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:26px}
+.spin{font-size:40px;display:inline-block;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ptx{font-size:13.5px;font-weight:800;color:var(--o);margin-top:10px}
+.pbar{height:8px;background:#1c2632;border-radius:99px;overflow:hidden;margin-top:14px}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--o),var(--gd));transition:.6s}
+.pnote{font-size:10.5px;color:var(--mu);margin-top:10px}
 /* دفتر + اسکن */
 .two{display:grid;grid-template-columns:1fr 1.25fr;gap:16px;align-items:start}
 @media(max-width:760px){.two{grid-template-columns:1fr}}
@@ -35,21 +54,17 @@ nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdro
 .paper.sc .beam{animation:bm 1.1s linear infinite}
 @keyframes bm{to{top:110%}}
 .que{background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:16px;min-height:320px}
-.qh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.qh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:6px}
 .qh b{font-size:13.5px}.qh span{font-size:10.5px;color:var(--mu)}
 .qcard{background:#182230;border:1.5px solid var(--o);border-radius:14px;padding:14px;animation:fi .3s}
-.qtype{display:flex;gap:6px;margin-bottom:10px}
+.qtype{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
 .qt{font-size:9.5px;font-weight:900;border-radius:99px;padding:2px 10px}
 .qt.it{background:#f59e0b18;color:var(--o)}.qt.cu{background:#3b82f618;color:#60a5fa}
 .raw{font-size:11px;color:var(--mu);margin-bottom:10px;border-bottom:1px dashed var(--ln);padding-bottom:8px}
 .fr{margin:8px 0}
 .fr label{font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px}
-.fr input,.fr select{width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px;outline:none}
+.fr input{width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px;outline:none}
 .fr input:focus{border-color:var(--o)}
-.fr input.ok{border-color:var(--gr)}
-.conf{display:flex;gap:4px;align-items:center;margin-top:4px}
-.conf i{height:5px;flex:1;border-radius:3px;background:#2a3644}
-.conf i.on{background:var(--gr)}
 .acts{display:flex;gap:8px;margin-top:14px}
 .acts button{flex:1;padding:10px;border-radius:10px;font-weight:900;font-size:12.5px}
 .okb{background:linear-gradient(135deg,var(--gr),#15803d);color:#fff}
@@ -57,9 +72,10 @@ nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdro
 .done{background:#22c55e14;border:1px solid #22c55e44;color:#4ade80;font-size:12px;font-weight:800;border-radius:11px;padding:9px 13px;text-align:center}
 .prog{height:7px;background:#1c2632;border-radius:99px;overflow:hidden;margin-bottom:14px}
 .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--o),var(--gd));transition:.5s}
-/* نتیجه نهایی */
+.okall{background:none;color:var(--mu);font-size:11px;font-weight:800;text-decoration:underline}
+/* نتیجه */
 .fin{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:22px;margin-top:16px}
-.fin h3{font-size:15px;font-weight:900;margin-bottom:14px;display:flex;gap:8px;align-items:center}
+.fin h3{font-size:15px;font-weight:900;margin-bottom:14px}
 .fsec{margin-bottom:16px}
 .fsec b{font-size:12.5px;color:var(--gd);display:block;margin-bottom:8px}
 .frow{display:flex;justify-content:space-between;align-items:center;background:#182230;border-radius:10px;padding:9px 13px;margin-bottom:6px;font-size:12.5px}
@@ -79,7 +95,9 @@ nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdro
 .wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}
 .et{width:100%;min-height:100px;background:#0e141c;border:1.5px solid var(--o);border-radius:12px;color:var(--tx);padding:12px;font-size:13.5px;outline:none;resize:vertical}
 .ethint{font-size:11px;color:var(--mu);margin-top:7px;line-height:1.9}
-/* بات‌ها */
+/* فاکتور و مشتری */
+.fbox{max-width:620px;margin:0 auto;background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:22px}
+.fbox .qh{margin-bottom:12px}
 .big{display:block;width:100%;background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;font-size:14.5px;border-radius:12px;padding:13px;transition:.2s}
 .big:hover{transform:translateY(-2px)}
 .big2{width:100%;background:#2a3138;color:var(--tx);font-weight:900;font-size:13px;border-radius:11px;padding:11px;margin-top:9px;border:1px solid var(--ln)}
@@ -90,45 +108,59 @@ footer{text-align:center;color:var(--mu);font-size:11px;padding:22px 0 70px}
 <body>
 <nav><div class="w nr">
   <a class="bk" href="/index.html">→ سایت اصلی</a>
-  <div class="lg">سایا</div>
+  <div class="lg">سایا — ورود هوشمند</div>
 </div></nav>
 
-<header class="hd w"><h1>📸🎙️ ورود هوشمند: دفتر، فاکتور، مشتریان — با عکس و صدا</h1>
-<p>عکس فقط پردازش می‌شود و <b style="color:var(--gr)">ذخیره نمی‌شود</b> | هر خط جداگانه تایید می‌شود | ویس → متن قابل‌ویرایش → ثبت</p></header>
+<header class="hd w"><h1>📸🎙️ ورود هوشمند: دفتر، فاکتور، مشتریان</h1>
+<p>عکس فقط پردازش می‌شود و <b style="color:var(--gr)">ذخیره نمی‌شود</b> | دست‌نویس می‌خواند و یاد می‌گیرد | هر خط جداگانه تایید</p></header>
 
 <div class="w">
 <div class="tabs">
-  <button class="tb on" onclick="sw(1)">📸 عکس دفتر → تأیید خط‌به‌خط</button>
+  <button class="tb on" onclick="sw(1)">📸 عکس دفتر</button>
   <button class="tb" onclick="sw(2)">🎙️ ورود صوتی</button>
-  <button class="tb" onclick="sw(3)">🧾 فاکتور خرید → انبار</button>
-  <button class="tb" onclick="sw(4)">👥 لیست مشتریان → CRM</button>
+  <button class="tb" onclick="sw(3)">🧾 فاکتور خرید</button>
+  <button class="tb" onclick="sw(4)">👥 لیست مشتریان</button>
 </div>
 
-<!-- ═══ صحنه ۱: عکس دفتر — خط‌به‌خط ═══ -->
+<!-- صحنه ۱: عکس -->
 <div class="stg on" id="g1">
-  <div class="two">
+  <div class="priv"><b>🔒</b> عکس فقط خوانده می‌شود — ذخیره نمی‌شود | دست‌نویس هم می‌خواند</div>
+  <div class="in2">
+    <div class="inb inb1" onclick="document.getElementById('camIn').click()"><span class="ic">📷</span>دوربین — عکس فوری<small>دفتر یا ترازو جلوی‌ته؟ همین حالا عکس بگیر</small></div>
+    <div class="inb inb2" onclick="document.getElementById('fileIn').click()"><span class="ic">📁</span>از دیوایس — انتخاب فایل<small>عکس ذخیره‌شده یا اسکن</small></div>
+  </div>
+  <input type="file" id="camIn" accept="image/*" capture="environment" hidden onchange="loadImg(this)">
+  <input type="file" id="fileIn" accept="image/*" multiple hidden onchange="loadImg(this)">
+
+  <div class="proc" id="prc" style="display:none">
+    <div class="spin">⚙️</div>
+    <div class="ptx" id="ptx">در حال پردازش دست‌نویس...</div>
+    <div class="pbar"><i id="pb"></i></div>
+    <div class="pnote">صاف‌سازی کجی ← حذف خطوط دفتر ← خواندن ← تشخیص</div>
+  </div>
+
+  <div class="two" id="scn" style="display:none">
     <div class="paper" id="ppr"><div class="beam"></div><div id="pls"></div></div>
     <div class="que">
-      <div class="qh"><b id="qn">آماده اسکن…</b><span id="qc">۰ از ۸</span></div>
+      <div class="qh"><b id="qn">آماده…</b><span id="qc"></span></div>
       <div class="prog"><i id="pg"></i></div>
       <div id="qz"></div>
-      <button class="big" id="go1" onclick="scan1()">▶ شروع خواندن دفتر</button>
-      <div class="hint2">بعد از خواندن، هر خط جدا نمایش داده می‌شود: تأیید کنید یا ویرایش — تا تأیید نکنید چیزی ثبت نمی‌شود.<br>در پایان: «تأیید همه» برای خط‌های بدون ایراد.</div>
+      <div class="hint2">هر خط جداگانه: تأیید یا ویرایش — تا تأیید نشود ثبت نمی‌شود.<br>در پایان «تأیید همه‌ی بی‌مشکل» هم هست.</div>
     </div>
   </div>
   <div class="fin" id="fin1" style="display:none">
-    <h3>✅ نتیجه نهایی — آماده ثبت در سایا</h3>
+    <h3>✅ نتیجه نهایی — آماده ثبت</h3>
     <div class="fsec"><b>📦 ورود به انبار و کاتالوگ:</b><div id="fi1"></div></div>
     <div class="fsec"><b>👥 ورود به CRM مشتریان:</b><div id="fi2"></div></div>
     <div class="btwo">
-      <div class="bt"><b>🔒 حریم عکس</b><p>عکس فقط خوانده شد و <b>ذخیره نمی‌شود</b> — فقط اطلاعات ساختاریافته وارد سیستم شد.</p></div>
-      <div class="bt"><b>🧠 یادگیری</b><p>اصلاحات شما ذخیره شد — دفعه بعد این دفتر را <b>دقیق‌تر</b> می‌خواند.</p></div>
+      <div class="bt"><b>🔒 حریم عکس</b><p>عکس فقط خوانده شد و ذخیره نمی‌شود — فقط اطلاعات ساختاریافته وارد سیستم شد.</p></div>
+      <div class="bt"><b>🧠 یادگیری</b><p>اصلاحات شما ذخیره شد — دفعه بعد این دفتر را دقیق‌تر می‌خواند.</p></div>
     </div>
-    <button class="big" style="margin-top:14px" onclick="alert('در نسخه واقعی: ثبت در دیتابیس + Audit Log + پیام تأیید به تلگرام ✅')">💾 ثبت نهایی در سایا</button>
+    <button class="big" style="margin-top:14px" onclick="alert('در نسخه واقعی: ثبت در دیتابیس + Audit Log + پیام تایید به تلگرام ✅')">💾 ثبت نهایی در سایا</button>
   </div>
 </div>
 
-<!-- ═══ صحنه ۲: ورود صوتی ═══ -->
+<!-- صحنه ۲: صوتی -->
 <div class="stg" id="g2">
   <div style="max-width:560px;margin:0 auto;background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:24px;text-align:center">
     <div class="mic idle" id="mic" onclick="rec()">🎙️</div>
@@ -137,149 +169,115 @@ footer{text-align:center;color:var(--mu);font-size:11px;padding:22px 0 70px}
     <div id="etw" style="display:none">
       <label style="font-size:11px;font-weight:800;color:var(--mu);display:block;text-align:start;margin-bottom:5px">📝 شنیدم — ویرایش کنید اگر غلط بود:</label>
       <textarea class="et" id="etx">مهرسا ۵۰ شد ۵۵ و ده تا بست کمربندی هشت رسید</textarea>
-      <div class="ethint">متن بالا همان چیزی است که منشی شنید — ویرایش کنید، بعد تایید.<br>سایا فقط «تایید‌شده» را اجرا می‌کند.</div>
+      <div class="ethint">متن بالا همان چیزی است که شنیدم — ویرایش کنید، بعد تایید.<br>فقط «تایید‌شده» اجرا می‌شود.</div>
       <div class="acts">
         <button class="acts button okb" style="flex:1" onclick="vok()">✅ تایید و اجرا</button>
-        <button class="acts button edb" style="flex:1" onclick="rec()">🎙 دوباره ضبط</button>
+        <button class="acts button edb" style="flex:1" onclick="rec()">🎙 دوباره</button>
       </div>
     </div>
     <div id="vres" style="display:none;background:#22c55e14;border:1px solid #22c55e44;color:#4ade80;font-size:13px;font-weight:800;border-radius:12px;padding:14px;margin-top:14px"></div>
   </div>
 </div>
 
-<!-- ═══ صحنه ۳: فاکتور → انبار ═══ -->
+<!-- صحنه ۳: فاکتور -->
 <div class="stg" id="g3">
-  <div style="max-width:620px;margin:0 auto;background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:22px">
+  <div class="fbox">
     <div class="qh"><b>🧾 فاکتور خرید از پخش — ورود به انبار</b></div>
-    <div class="fr"><label>تامین‌کننده</label><input value="پخش مرکزی ابزار تهران" readonly style="opacity:.7"></div>
-    <div class="fr"><label>کالا</label><input id="inm" value="سنگ برش ۴.۵ اینچ"></div>
-    <div class="fr"><label>تعداد</label><input id="iq" value="۱۰۰ عدد"></div>
-    <div class="fr"><label>قیمت خرید واحد</label><input id="ip" value="۱۸۵٬۰۰۰ تومان"></div>
-    <button class="big" onclick="instock()">📦 افزودن به انبار</button>
-    <div class="done" id="idn" style="display:none;margin-top:12px">✅ انبار: سنگ برش ۴.۵ → موجودی ۶۰ + ۱۰۰ = ۱۶۰ عدد | قیمت خرید ثبت شد</div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">تامین‌کننده</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="پخش مرکزی ابزار تهران"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">کالا</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="سنگ برش ۴.۵ اینچ"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">تعداد</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="۱۰۰ عدد"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">قیمت خرید واحد</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="۱۸۵٬۰۰۰ تومان"></div>
+    <button class="big" onclick="idn.style.display='block'">📦 افزودن به انبار</button>
+    <div class="done" id="idn" style="display:none;margin-top:12px">✅ انبار: سنگ برش ۴.۵ → ۶۰ + ۱۰۰ = ۱۶۰ عدد | قیمت خرید ثبت شد</div>
   </div>
 </div>
 
-<!-- ═══ صحنه ۴: مشتریان ═══ -->
+<!-- صحنه ۴: مشتریان -->
 <div class="stg" id="g4">
-  <div style="max-width:620px;margin:0 auto;background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:22px">
+  <div class="fbox">
     <div class="qh"><b>👥 مشتری جدید — از دفتر یا ویس</b></div>
-    <div class="fr"><label>نام</label><input value="آقارضا احمدی"></div>
-    <div class="fr"><label>صنف / لقب</label><input value="ابزارفروش تبریز"></div>
-    <div class="fr"><label>تلفن</label><input value="۰۹۱۴ ۱۲۳ ۴۵۶۷"></div>
-    <div class="fr"><label>آدرس</label><input value="تبریز، خیابان ابوریحان"></div>
-    <div class="fr"><label>بدهی جاری</label><input value="۲٬۴۵۰٬۰۰۰ تومان"></div>
-    <button class="big" onclick="incust()">👥 افزودن به CRM</button>
-    <div class="done" id="cdn" style="display:none;margin-top:12px">✅ CRM: آقارضا احمدی ثبت شد — بدهی جاری ۲٬۴۵۰٬۰۰۰ | منشی از این به بعد اسمش را می‌داند</div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">نام</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="آقارضا احمدی"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">صنف / لقب</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="ابزارفروش تبریز"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">تلفن</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="۰۹۱۴ ۱۲۳ ۴۵۶۷"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">آدرس</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="تبریز، خیابان ابوریحان"></div>
+    <div class="fr" style="margin:8px 0"><label style="font-size:10.5px;font-weight:800;color:var(--mu);display:block;margin-bottom:3px">بدهی جاری</label><input style="width:100%;background:#0e141c;border:1px solid var(--ln);border-radius:9px;color:var(--tx);padding:8px 11px;font-size:12.5px" value="۲٬۴۵۰٬۰۰۰ تومان"></div>
+    <button class="big" onclick="cdn.style.display='block'">👥 افزودن به CRM</button>
+    <div class="done" id="cdn" style="display:none;margin-top:12px">✅ CRM: آقارضا احمدی — بدهی ۲٬۴۵۰٬۰۰۰ | منشی اسمش را می‌داند</div>
   </div>
 </div>
 </div>
 
-<footer>© سایا — هر خط، با تایید شما | عکس ذخیره نمی‌شود 🧞</footer>
+<footer>© سایا — هر خط با تایید شما | عکس ذخیره نمی‌شود 🧞</footer>
 
 <script>
-/* ── تب ── */
 function sw(n){document.querySelectorAll('.tb').forEach((b,i)=>b.classList.toggle('on',i===n-1));
 document.querySelectorAll('.stg').forEach((p,i)=>p.classList.toggle('on',i===n-1))}
-/* ── صحنه ۱: خط‌به‌خط ── */
+/* ورود عکس از دوربین/دیوایس */
+function loadImg(inp){
+ if(!inp.files||!inp.files[0])return;
+ prc.style.display='block';scn.style.display='none';fin1.style.display='none';
+ const steps=[[8,'صاف‌سازی کجی عکس...'],[30,'حذف خطوط دفتر...'],[55,'خواندن دست‌نویس فارسی...'],[80,'تشخیص نوع خط: کالا یا مشتری...'],[95,'امتیاز اطمینان هر فیلد...']];
+ steps.forEach((s,i)=>setTimeout(()=>{ptx.textContent=s[1];pb.style.width=s[0]+'%'},i*700));
+ setTimeout(()=>{prc.style.display='none';scn.style.display='block';scan1()},3600);
+ inp.value='';
+}
+/* خط‌به‌خط */
 const LINES=[
- {raw:'پیچ آهنی M8×50 — کیلویی 185,000',type:'item',d:{name:'پیچ آهنی M8×50',price:185000,unit:'کیلوگرم',stock:300},c:.95},
- {raw:'بست کمربندی 8 جعبه 100تایی — 95',type:'item',d:{name:'بست کمربندی ۸',price:95000,unit:'جعبه',stock:120},c:.92},
- {raw:'سنگ برش 4/5 بسته 25تایی — 420',type:'item',d:{name:'سنگ برش ۴.۵',price:420000,unit:'بسته',stock:60},c:.9},
- {raw:'آچار فرانسه تولسن 12 — 98 شد 105',type:'item',d:{name:'آچار فرانسه تولسن ۱۲',price:105000,unit:'عدد',stock:45},c:.88,upd:'۹۸←۱۰۵'},
- {raw:'مته HSS سایز 10 — دست 10تایی 85',type:'item',d:{name:'مته HSS سایز ۱۰',price:85000,unit:'دست',stock:90},c:.87},
- {raw:'آقارضا احمدی — ابزارفروش تبریز — 09141234567 — بدهی 2,450,000',type:'cust',d:{name:'آقارضا احمدی',title:'ابزارفروش تبریز',phone:'989141234567',debt:2450000},c:.93},
+ {raw:'پیچ آهنی M8×50 — کیلویی 185,000',type:'item',d:{name:'پیچ آهنی M8×50',price:185000,stock:300},c:.95},
+ {raw:'بست کمربندی 8 جعبه 100تایی — 95',type:'item',d:{name:'بست کمربندی ۸',price:95000,stock:120},c:.92},
+ {raw:'سنگ برش 4/5 بسته 25تایی — 420',type:'item',d:{name:'سنگ برش ۴.۵',price:420000,stock:60},c:.9},
+ {raw:'آچار فرانسه تولسن 12 — 98 شد 105',type:'item',d:{name:'آچار فرانسه تولسن ۱۲',price:105000,stock:45},c:.88,upd:'۹۸←۱۰۵'},
+ {raw:'آقارضا احمدی — ابزارفروش تبریز — 09141234567 — بدهی 2450000',type:'cust',d:{name:'آقارضا احمدی',title:'ابزارفروش تبریز',phone:'989141234567',debt:2450000},c:.93},
  {raw:'چکش بکس 500 گرمی — تموم شد',type:'item',d:{name:'چکش بکس ۵۰۰',stock:0},c:.9,oos:1},
- {raw:'مهرسا 50 — 55',type:'item',d:{name:'مهرسا ۵۰',price:55000,unit:'عدد',stock:25},c:.55,amb:1}];
-let idx=0,approved=[],edits={};
+ {raw:'مهرسا 50 — 55',type:'item',d:{name:'مهرسا ۵۰',price:55000,stock:25},c:.55,amb:1}];
+let idx=0,approved=[];
 function scan1(){
- idx=0;approved=[];document.getElementById('fin1').style.display='none';
+ idx=0;approved=[];fin1.style.display='none';
  ppr.classList.add('scan');
- pls.querySelectorAll('.pl').forEach(p=>p.classList.remove('done','cur'));
- document.getElementById('go1').style.display='none';
+ pls.innerHTML=['پیچ آهنی M8 — کیلویی ۱۸۵','بست کمربندی ۸ جعبه — ۹۵','سنگ برش ۴/۵ بسته ۲۵ — ۴۲۰','آچار تولسن ۱۲ — ۹۸ شد ۱۰۵','آقارضا احمدی — ابزارفروش تبریز — ۰۹۱۴...','چکش بکس ۵۰۰ — تموم شد','مهرسا ۵۰ — ۵۵'].map(x=>`<div class="pl">${x}</div>`).join('');
  next();
 }
 function next(){
  if(idx>=LINES.length){finish1();return}
  const L=LINES[idx];
  pls.children[idx].classList.add('cur');
- document.getElementById('qn').textContent='خط '+(idx+1)+' — '+L.raw.slice(0,30)+'…';
- document.getElementById('qc').textContent=idx+' از '+LINES.length;
- document.getElementById('pg').style.width=(idx/LINES.length*100)+'%';
- const conf=Math.round(L.c*100);
- const dot=L.c>=.85?'🟢':L.c>=.6?'🟡':'🔴';
- const typeB=L.type==='item'?'<span class="qt it">📦 کالا → انبار</span>':'<span class="qt cu">👥 مشتری → CRM</span>';
- let fields='';
- if(L.type==='item'){
-  fields=`<div class="fr"><label>نام کالا</label><input class="fd-in" data-k="name" value="${L.d.name||''}"></div>
-  <div class="fr"><label>قیمت (تومان)</label><input class="fd-in ${L.oos?'':'ok'}" data-k="price" value="${L.d.price||''}" ${L.oos?'disabled':''}></div>
-  <div class="fr"><label>موجودی</label><input class="fd-in" data-k="stock" value="${L.d.stock??''}"></div>`;
- }else{
-  fields=`<div class="fr"><label>نام مشتری</label><input class="fd-in" data-k="name" value="${L.d.name||''}"></div>
-  <div class="fr"><label>تلفن</label><input class="fd-in" data-k="phone" value="${L.d.phone||''}"></div>
-  <div class="fr"><label>بدهی جاری (تومان)</label><input class="fd-in" data-k="debt" value="${L.d.debt||0}"></div>`;
- }
- document.getElementById('qz').innerHTML=`
-  <div class="qcard">
-   <div class="qtype">${typeB}<span class="qt" style="background:#ffffff0d;color:var(--mu)">${dot} اطمینان ${conf}٪</span></div>
-   <div class="raw">📄 خط خام: ${L.raw}</div>
-   ${fields}
-   <div class="acts">
-    <button class="acts button okb" onclick="ok(${idx})">✓ تأیید این خط</button>
-    <button class="acts button edb" onclick="ed(${idx})">✏️ ویرایش و تأیید</button>
-   </div>
-  </div>
-  <div style="text-align:center;margin-top:10px"><button style="background:none;color:var(--mu);font-size:11px;font-weight:800;text-decoration:underline" onclick="okall()">⏩ تأیید همه‌ی خط‌های بدون مشکل (${LINES.length-idx-1} خط بعدی)</button></div>`;
+ qn.textContent='خط '+(idx+1)+' — '+L.raw.slice(0,26)+'…';
+ qc.textContent=idx+' از '+LINES.length;
+ pg.style.width=(idx/LINES.length*100)+'%';
+ const conf=Math.round(L.c*100),dot=L.c>=.85?'🟢':L.c>=.6?'🟡':'🔴';
+ const tb=L.type==='item'?'<span class="qt it">📦 کالا → انبار</span>':'<span class="qt cu">👥 مشتری → CRM</span>';
+ let f='';
+ if(L.type==='item'){f=`<div class="fr"><label>نام کالا</label><input class="fi" data-k="name" value="${L.d.name||''}"></div>
+ <div class="fr"><label>قیمت (تومان)</label><input class="fi" data-k="price" value="${L.d.price??''}" ${L.oos?'disabled':''}></div>
+ <div class="fr"><label>موجودی</label><input class="fi" data-k="stock" value="${L.d.stock??''}"></div>`}
+ else{f=`<div class="fr"><label>نام مشتری</label><input class="fi" data-k="name" value="${L.d.name||''}"></div>
+ <div class="fr"><label>تلفن</label><input class="fi" data-k="phone" value="${L.d.phone||''}"></div>
+ <div class="fr"><label>بدهی جاری</label><input class="fi" data-k="debt" value="${L.d.debt||0}"></div>`}
+ qz.innerHTML=`<div class="qcard"><div class="qtype">${tb}<span class="qt" style="background:#ffffff0d;color:var(--mu)">${dot} اطمینان ${conf}٪</span></div>
+ <div class="raw">📄 خام: ${L.raw}</div>${f}
+ <div class="acts"><button class="acts button okb" onclick="ok(${idx})">✓ تأیید این خط</button>
+ <button class="acts button edb" onclick="ed(${idx})">✏️ ویرایش و تأیید</button></div></div>
+ <div style="text-align:center;margin-top:10px"><button class="okall" onclick="okall()">⏩ تأیید همه‌ی خط‌های بدون مشکل (${LINES.length-idx} خط باقی)</button></div>`;
 }
-function ok(i){
- approved.push({line:LINES[i],data:collect(i)});
- pls.children[i].classList.remove('cur');pls.children[i].classList.add('done');
- idx++;next();
-}
-function ed(i){
- // ویرایش: مقادیر داخل inputها خوانده و با تأیید ثبت می‌شوند
- approved.push({line:LINES[i],data:collect(i),edited:true});
- pls.children[i].classList.remove('cur');pls.children[i].classList.add('done');
- idx++;next();
-}
-function okall(){
- for(let i=idx;i<LINES.length;i++){
-  const L=LINES[i];if(L.c>=.85){approved.push({line:L,data:L.d});pls.children[i].classList.add('done')}
-  else{approved.push({line:L,data:collect(i)});pls.children[i].classList.add('done')}
- }
- idx=LINES.length;next();
-}
-function collect(i){
- const card=document.querySelectorAll('.qcard .fd-in');
- if(!card.length)return LINES[i].d;
- const o={};card.forEach(inp=>o[inp.dataset.k]=inp.value);
- return o;
-}
+function ok(i){approved.push({line:LINES[i],data:collect()});pls.children[i].classList.remove('cur');pls.children[i].classList.add('done');idx++;next()}
+function ed(i){approved.push({line:LINES[i],data:collect(),edited:true});pls.children[i].classList.remove('cur');pls.children[i].classList.add('done');idx++;next()}
+function okall(){for(let i=idx;i<LINES.length;i++){approved.push({line:LINES[i],data:LINES[i].d});pls.children[i].classList.add('done')}idx=LINES.length;next()}
+function collect(){const o={};document.querySelectorAll('.qcard .fi').forEach(x=>o[x.dataset.k]=x.value);return o}
 function finish1(){
- ppr.classList.remove('scan');
- document.getElementById('qn').textContent='تمام شد!';
- document.getElementById('qc').textContent=LINES.length+' از '+LINES.length;
- document.getElementById('pg').style.width='100%';
- document.getElementById('qz').innerHTML='<div class="done">✅ همه خط‌ها تایید شد — نتیجه نهایی زیر آماده ثبت است</div>';
- const items=approved.filter(a=>a.line.type==='item');
- const custs=approved.filter(a=>a.line.type==='cust');
- fi1.innerHTML=items.map(a=>`<div class="frow"><span class="l">${a.line.oos?'⛔':a.line.upd?'💰':'📦'} ${a.data.name||a.line.d.name}</span><span class="r">${a.line.oos?'ناموجود شد':a.line.upd?'قیمت: '+a.line.upd:'موجودی: '+a.data.stock+' '+ (a.data.unit||'') }</span></div>`).join('');
- fi2.innerHTML=custs.map(a=>`<div class="frow"><span class="l">👥 ${a.data.name} (${a.data.title||''})</span><span class="r">تلفن: ${a.data.phone||'—'} | بدهی: ${(a.data.debt||0).toLocaleString('fa')} ت</span></div>`).join('');
- fin1.style.display='block';fin1.scrollIntoView({behavior:'smooth'});
-}
-/* ── صحنه ۲: ویس ── */
-let recing=false;
-function rec(){
- recing=!recing;const m=document.getElementById('mic');
- if(recing){m.classList.remove('idle');mst.textContent='در حال ضبط... دوباره کلیک = پایان';wv.style.display='flex';etw.style.display='none';
-  setTimeout(()=>{if(recing){recing=false;m.classList.add('idle');mst.textContent='شنیدم — ویرایش و تایید:';wv.style.display='none';etw.style.display='block'}},2600)}
- else{recing=false;m.classList.add('idle');mst.textContent='شنیدم — ویرایش و تایید:';wv.style.display='none';etw.style.display='block'}}
-function vok(){
- const t=etx.value;vres.style.display='block';
- vres.innerHTML='✅ اجرا شد:<br>• <b>مهرسا ۵۰</b> → قیمت جدید ۵۵٬۰۰۰<br>• <b>بست کمربندی ۸</b> → موجودی +۱۰<br><small>(در نسخه واقعی: هر تغییر + Audit Log)</small>'}
-/* ── صحنه ۳ و ۴ ── */
-function instock(){idn.style.display='block'}
-function incust(){cdn.style.display='block'}
+ ppr.classList.remove('scan');qn.textContent='تمام شد!';qc.textContent=LINES.length+' از '+LINES.length;pg.style.width='100%';
+ qz.innerHTML='<div class="done">✅ همه خط‌ها تایید شد — نتیجه نهایی آماده ثبت</div>';
+ const it=approved.filter(a=>a.line.type==='item'),cu=approved.filter(a=>a.line.type==='cust');
+ fi1.innerHTML=it.map(a=>`<div class="frow"><span class="l">${a.line.oos?'⛔':a.line.upd?'💰':'📦'} ${a.data.name||a.line.d.name}</span><span class="r">${a.line.oos?'ناموجود':a.line.upd?'قیمت: '+a.line.upd:'موجودی: '+a.data.stock}</span></div>`).join('');
+ fi2.innerHTML=cu.map(a=>`<div class="frow"><span class="l">👥 ${a.data.name} (${a.data.title||''})</span><span class="r">📞 ${a.data.phone||'—'} | بدهی: ${a.data.debt}</span></div>`).join('');
+ fin1.style.display='block';fin1.scrollIntoView({behavior:'smooth'})}
+/* ویس */
+let rc=false;
+function rec(){rc=!rc;const m=mic;
+ if(rc){m.classList.remove('idle');mst.textContent='در حال ضبط... دوباره کلیک = پایان';wv.style.display='flex';etw.style.display='none';
+  setTimeout(()=>{if(rc){rc=false;m.classList.add('idle');mst.textContent='شنیدم — ویرایش و تایید:';wv.style.display='none';etw.style.display='block'}},2600)}
+ else{rc=false;m.classList.add('idle');mst.textContent='شنیدم — ویرایش و تایید:';wv.style.display='none';etw.style.display='block'}}
+function vok(){vres.style.display='block';
+ vres.innerHTML='✅ اجرا شد:<br>• <b>مهرسا ۵۰</b> → قیمت ۵۵٬۰۰۰<br>• <b>بست کمربندی ۸</b> → موجودی +۱۰<br><small>(نسخه واقعی: هر تغییر + Audit Log)</small>'}
 </script>
 </body>
 </html>
