@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حساب‌کتاب سایا — دفتر زنده | نمایشی</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+:root{--o:#f59e0b;--o2:#ea580c;--gd:#fbbf24;--dk:#080c12;--dk2:#0f151d;--cd:#131b25;--ln:#242f3c;--tx:#e9eef4;--mu:#8f9cab;--gr:#22c55e;--rd:#ef4444;--yl:#eab308;--bl:#3b82f6}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--dk);color:var(--tx)}
+button,input,select{font-family:inherit}a{text-decoration:none;color:inherit}
+.w{max-width:1060px;margin:0 auto;padding:0 14px}
+nav{position:fixed;inset-inline:0;top:0;z-index:100;background:#080c12ec;backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+.nr{display:flex;align-items:center;gap:10px;padding:10px 0}
+.bk{color:var(--mu);font-size:13px;font-weight:800}.bk:hover{color:var(--o)}
+.lg{font-weight:900;font-size:17px;color:var(--gd);margin-inline-start:auto}
+.demo{background:#f59e0b15;border:1px solid #f59e0b44;color:var(--o);font-size:10px;font-weight:900;border-radius:99px;padding:3px 12px}
+.hd{padding:80px 0 18px;text-align:center}
+.hd h1{font-size:clamp(20px,3.8vw,30px);font-weight:900}
+.hd p{color:var(--mu);font-size:13px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+.kpi{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:14px;text-align:center}
+.kpi b{font-size:20px;font-weight:900;display:block}
+.kpi span{font-size:10.5px;color:var(--mu)}
+.kpi.g b{color:var(--gr)}.kpi.r b{color:var(--rd)}.kpi.o b{color:var(--o)}
+.tabs{display:flex;gap:8px;margin:8px 0 16px;flex-wrap:wrap}
+.tb{background:var(--cd);border:1.5px solid var(--ln);color:var(--mu);font-size:12.5px;font-weight:800;border-radius:99px;padding:9px 18px;transition:.25s;cursor:pointer}
+.tb.on{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;border-color:transparent}
+.tb .cnt{background:#0006;border-radius:99px;padding:0 7px;font-size:10px;margin-inline-start:4px}
+.srch{width:100%;max-width:420px;display:block;margin:0 auto 16px;background:#0e141c;border:1.5px solid var(--ln);border-radius:12px;color:var(--tx);padding:11px 16px;font-size:13.5px;outline:none}
+.srch:focus{border-color:var(--o)}
+.tbl{background:var(--cd);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+th{background:#1a2430;color:var(--gd);font-size:10.5px;padding:10px;text-align:right}
+td{padding:11px 10px;border-top:1px solid #ffffff08}
+tr.cu{cursor:pointer;transition:.2s}
+tr.cu:hover{background:#f59e0b0d}
+.nm{font-weight:800}.sub{font-size:10px;color:var(--mu)}
+.bal{font-weight:900;font-size:13px}
+.p{color:var(--gr)}.m{color:#fca5a5}
+.aging{font-size:9.5px;border-radius:99px;padding:2px 9px;font-weight:800}
+.a1{background:#22c55e18;color:#4ade80}.a2{background:#eab30818;color:#fde047}.a3{background:#ef444418;color:#fca5a5}
+.mute{color:var(--mu);font-size:10px}
+#detail{display:none;background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:20px;margin-top:14px}
+#detail.on{display:block;animation:fin .4s}
+@keyframes fin{from{opacity:0;transform:translateY(12px)}to{opacity:1}}
+.dh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.dh .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--o),var(--o2));display:grid;place-items:center;font-weight:900;font-size:17px;color:#1a1208}
+.dh b{font-size:15px}.dh small{color:var(--mu);font-size:11px;display:block}
+.dh .bal2{margin-inline-start:auto;text-align:center}
+.dh .bal2 b{font-size:19px;color:#fca5a5;display:block}
+.dh .bal2 span{font-size:10px;color:var(--mu)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-size:10px;background:#ffffff0a;border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--mu)}
+.chip.w{color:var(--o);border-color:#f59e0b44}
+.hist{max-height:260px;overflow-y:auto}
+.hrow{display:flex;justify-content:space-between;gap:10px;padding:9px 4px;border-bottom:1px dashed #ffffff10;font-size:12px}
+.hrow small{color:var(--mu);font-size:10px;min-width:70px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.act{flex:1;min-width:130px;border-radius:11px;padding:10px;font-size:12px;font-weight:900;border:1.5px solid var(--ln);background:none;color:var(--tx);transition:.2s}
+.act:hover{border-color:var(--o);color:var(--o)}
+.act.main{background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;border:0}
+.act.main:hover{transform:translateY(-2px)}
+.pflow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.pf{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:14px}
+.pf .ic{font-size:22px}.pf b{font-size:15px;display:block;margin:5px 0 2px}
+.pf small{color:var(--mu);font-size:10.5px}
+.pf .amt{font-weight:900;font-size:14px;margin-top:6px;display:block}
+.bnk{background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:18px;margin-top:14px}
+.bnk h3{font-size:14px;font-weight:900;display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.trust{display:flex;gap:8px;flex-wrap:wrap}
+.tn{background:#0e141c;border:1.5px solid var(--gr);border-radius:12px;padding:10px 14px;font-size:11.5px}
+.tn b{color:var(--gr);display:block;font-size:12px}
+.tn small{color:var(--mu);font-size:9.5px}
+.flow{margin-top:14px;background:#0e141c;border-radius:12px;padding:14px;font-size:12px}
+.frow2{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #ffffff10}
+.frow2 .a{font-weight:900}
+.wrn{background:#ef444414;border:1px solid #ef444444;color:#fca5a5;font-size:11.5px;font-weight:800;border-radius:12px;padding:10px 14px;margin-top:10px;display:flex;gap:8px;align-items:center}
+.wrn.y{background:#eab30812;border-color:#eab30844;color:#fde047}
+.notice{text-align:center;color:var(--mu);font-size:11px;padding:20px 0}
+</style>
+</head>
+<body>
+<nav><div class="w nr">
+  <a class="bk" href="/index.html">→ بازگشت به سایت</a>
+  <span class="demo">دموی نمایشی — داده نمونه؛ در نسخه شما داده‌های واقعی‌تان</span>
+  <div class="lg">حساب‌کتاب سایا</div>
+</div></nav>
+
+<header class="hd w"><h1>💼 دفتر زنده — طلبکار/بدهکار، لحظه‌به‌لحظه</h1>
+<p>پیامک بانک خودش ثبت می‌کند | بدهی با ادب پیگیری می‌شود | هر چیزی که تغییر کند، لاگ دارد</p></header>
+
+<div class="w">
+  <div class="kpis">
+    <div class="kpi r"><b>۱۸٬۴۰۰٬۰۰۰</b><span>مجموع بدهی مشتری‌ها</span></div>
+    <div class="kpi g"><b>۳٬۲۰۰٬۰۰۰</b><span>امروز وصول شد</span></div>
+    <div class="kpi o"><b>۴</b><span>سرسد گذشته (نیاز پیگیری)</span></div>
+    <div class="kpi"><b>۲۳</b><span>مشتری فعال دفتر</span></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tb on" onclick="dtab(1)">👥 دفتر کار (مشتری‌ها) <span class="cnt">۲۳</span></button>
+    <button class="tb" onclick="dtab(2)">🏠 دفتر شخصی مالک</button>
+    <button class="tb" onclick="dtab(3)">🏦 پل بانکی خودکار</button>
+  </div>
+
+  <div id="dt1">
+    <input class="srch" id="q" placeholder="🔍 جستجوی مشتری..." oninput="flt()">
+    <div class="tbl"><table><thead><tr>
+      <th>مشتری</th><th>مانده (تومان)</th><th>آخرین خرید</th><th>وضعیت</th><th></th>
+    </tr></thead><tbody id="tbd"></tbody></table></div>
+    <div id="detail"></div>
+    <p class="notice">روی هر مشتری کلیک کنید — جزئیات، تاریخچه و اقدام‌ها باز می‌شود</p>
+  </div>
+
+  <div id="dt2" style="display:none">
+    <div class="wrn y">🏠 این دفتر جدا از دفتر کار است — رفت‌وبرگشت عادی شما؛ با حساب مشتری‌ها قاطی نمی‌شود</div>
+    <div class="pflow" style="margin-top:14px">
+      <div class="pf"><div class="ic">📥</div><b>واریز این ماه</b><small>خودکار از پیامک بانک</small><span class="amt p">+۴۲٬۵۰۰٬۰۰۰</span></div>
+      <div class="pf"><div class="ic">📤</div><b>برداشت این ماه</b><small>خرید ملزومات، کرایه، ...</small><span class="amt m">-۲۸٬۱۰۰٬۰۰۰</span></div>
+      <div class="pf"><div class="ic">⚖️</div><b>مانده جاری</b><small>دسترسی دارید ولی دست‌نخورده</small><span class="amt">+۱۴٬۴۰۰٬۰۰۰</span></div>
+      <div class="pf"><div class="ic">🧾</div><b>خروجی اکسل</b><small>برای حسابدار شما</small><a class="amt" style="color:var(--o)" href="#">دانلود ⬇</a></div>
+    </div>
+    <div class="bnk"><h3>📜 آخرین تراکنش‌های خودکار</h3>
+      <div class="flow">
+        <div class="frow2"><span>💳 برداشت — خرید ملزومات مغازه</span><span class="a m">-۱٬۲۰۰٬۰۰۰</span></div>
+        <div class="frow2"><span>📥 واریز — فروش نقدی امروز</span><span class="a p">+۳٬۲۰۰٬۰۰۰</span></div>
+        <div class="frow2"><span>💳 برداشت — کرایه انبار</span><span class="a m">-۵٬۰۰۰٬۰۰۰</span></div>
+        <div class="frow2" style="border:0"><span class="mute">هر تراکنش: پیامک بانک → پارس → ثبت → لاگ | «برگرد» = UNDO</span><span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dt3" style="display:none">
+    <div class="bnk">
+      <h3>🏦 شماره‌های تایید‌شده — یکبار تایید، همیشه خودکار</h3>
+      <div class="trust">
+        <div class="tn"><b>بانک ملت — ۷۰۰۷xx92</b><small>حساب کار | پیامک‌ها خودکار ثبت می‌شوند</small></div>
+        <div class="tn"><b>بانک صادرات — ۶۱۰۳xx18</b><small>حساب شخصی | جدا از دفتر کار</small></div>
+        <div class="tn" style="border-style:dashed;border-color:var(--ln)"><b style="color:var(--mu)">+ افزودن بانک دیگر</b><small>تایید یکبار توسط مالک</small></div>
+      </div>
+      <div class="flow" style="margin-top:14px">
+        <div class="frow2"><span>📩 پیامک رسید از بانک ملت</span><span class="a">۲ ثانیه بعد:</span></div>
+        <div style="background:#131b25;border-radius:10px;padding:12px;margin:8px 0;font-size:12.5px;line-height:2">
+        💰 واریز <b style="color:var(--gr)">۲٬۰۰۰٬۰۰۰ تومان</b> شناسایی شد<br>
+        → تطبیق با مشتری‌ها: <b>آقای احمدی (بدهی دقیقاً ۲٬۰۰۰٬۰۰۰)</b><br>
+        → ✅ بدهی‌اش تسویه شد — مانده: ۵۰۰٬۰۰۰<br>
+        <span style="color:var(--mu);font-size:10.5px">خودکار بود؛ اگه غلط بود بگویید «برگرد» ↩</span></div>
+      </div>
+      <div class="wrn">🔒 هیچ تراکنشی بدون رد ثبت بانکی ثبت نمی‌شود | هر ثبت = Audit Log | «برگرد» = UNDO فوری</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const C=[
+ {n:'آقارضا احمدی',t:'ابزارفروش تبریز',b:4500000,l:'۳ روز پیش',a:1,vip:1,h:[
+  ['۱۴۰۴/۰۵/۱۲','فاکتور ۴۵ — نسیه ۳۰ روزه','+۴٬۵۰۰٬۰۰۰'],
+  ['۱۴۰۴/۰۵/۰۲','واریز — پیامک بانک ملت','-۳٬۰۰۰٬۰۰۰'],
+  ['۱۴۰۴/۰۴/۲۵','فاکتور ۴۱ — نقدی','-۱٬۲۰۰٬۰۰۰']]},
+ {n:'حاج مرتضی (رستوران ونک)',t:'مشتری ویژه',b:2300000,l:'دیروز',a:2,vip:1,h:[
+  ['۱۴۰۴/۰۵/۱۴','فاکتور ۴۶ — نسیه ۱۵ روزه','+۲٬۳۰۰٬۰۰۰'],
+  ['۱۴۰۴/۰۴/۳۰','واریز','-۴٬۰۰۰٬۰۰۰']]},
+ {n:'سعید گروسی',t:'سوپرمارکت',b:850000,l:'۲ روز پیش',a:1,h:[
+  ['۱۴۰۴/۰۵/۱۳','فاکتور ۴۴ — نسیه','+۸۵۰٬۰۰۰']]},
+ {n:'کاظمی (تالار آرایی)',t:'عمده',b:5200000,l:'۴۸ روز پیش',a:3,h:[
+  ['۱۴۰۴/۰۳/۲۷','فاکتور ۳۸ — نسیه','+۵٬۲۰۰٬۰۰۰'],
+  ['۱۴۰۴/۰۳/۱۰','واریز','-۲٬۰۰۰٬۰۰۰']]},
+ {n:'نیک‌پور موبایل',t:'خرده',b:0,l:'امروز',a:0,h:[
+  ['۱۴۰۴/۰۵/۱۵','فاکتور ۴۷ — نقدی','-۹۵۰٬۰۰۰']]},
+ {n:'حبیبی (پخش شوینده)',t:'عمده',b:1800000,l:'۱۲ روز پیش',a:1,h:[
+  ['۱۴۰۴/۰۵/۰۳','فاکتور ۴۲ — نسیه','+۱٬۸۰۰٬۰۰۰']]},
+];
+const A={0:['✔ تسویه','a1'],1:['🟡 جاری','a1'],2:['🟡 ۳۰+ روز','a2'],3:['🔴 ۶۰+ روز — تماس شخصی','a3']};
+function tbl(f=''){tbd.innerHTML=C.filter(c=>c.n.includes(f)||c.t.includes(f)).map((c,i)=>
+ `<tr class="cu" onclick="det(${C.indexOf(c)})">
+  <td><div class="nm">${c.vip?'⭐ ':''}${c.n}</div><div class="sub">${c.t}</div></td>
+  <td><span class="bal ${c.b>0?'m':c.b<0?'p':''}">${c.b>0?c.b.toLocaleString('fa')+' بدهکار':c.b<0?Math.abs(c.b).toLocaleString('fa')+' طلبکار':'تسویه ✔'}</span></td>
+  <td class="mute">${c.l}</td>
+  <td><span class="aging ${A[c.a][1]}">${A[c.a][0]}</span></td>
+  <td class="mute">جزئیات ◂</td></tr>`).join('')}
+function flt(){tbl(q.value.trim())}
+function det(i){const c=C[i];const d=document.getElementById('detail');
+ d.className='on';d.scrollIntoView({behavior:'smooth'});
+ d.innerHTML=`<div class="dh">
+   <div class="av">${c.n[0]}</div>
+   <div><b>${c.vip?'⭐ ':''}${c.n}</b><small>${c.t} | سقف نسیه: ۵٬۰۰۰٬۰۰۰ | آزاد: ${Math.max(0,5000000-c.b).toLocaleString('fa')}</small></div>
+   <div class="bal2"><b>${c.b>0?c.b.toLocaleString('fa'):'تسویه'}</b><span>${c.b>0?'تومان بدهکار':''}</span></div></div>
+  <div class="chips"><span class="chip w">${c.vip?'قیمت VIP دارد':'مشتری عادی'}</span>
+   <span class="chip">منشی: تنبیه ${c.a===3?'خاموش (ارجاع به شما)':'فعال'}</span>
+   <span class="chip">چرخه خرید: ~${c.t.includes('رستوران')?'۱۵':'۳۰'} روز</span></div>
+  <div class="hist">${c.h.map(h=>`<div class="hrow"><span>${h[1]}</span><span class="${h[2][0]==='+'?'m':'p'}" style="font-weight:900">${h[2]}</span><small>${h[0]}</small></div>`).join('')}</div>
+  <div class="actions">
+   <button class="act main">💳 ثبت واریز (پیامک بانک)</button>
+   <button class="act">🧾 پیش‌فاکتور جدید</button>
+   <button class="act">🔔 یادآوری با ادب</button>
+   <button class="act">⛔ خاموش‌کردن تنبیه</button>
+   <button class="act">📊 گزارش این مشتری</button></div>`;
+ d.querySelectorAll('.act').forEach(b=>b.onclick=()=>alert('در نسخه واقعی: این عمل اجرا و در Audit Log ثبت می‌شود ✅\n(این دمو فقط نمایشی است)'))}
+function dtab(n){document.querySelectorAll('.tb').forEach((b,i)=>b.classList.toggle('on',i===n-1));
+ dt1.style.display=n===1?'block':'none';dt2.style.display=n===2?'block':'none';dt3.style.display=n===3?'block':'none'}
+tbl();
+</script>
+</body>
+</html>
