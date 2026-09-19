@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial=1">
+<title>فروشگاه‌های سایا</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+:root{--o:#f59e0b;--o2:#ea580c;--gd:#fbbf24;--dk:#080c12;--cd:#131b25;--ln:#242f3c;--tx:#e9eef4;--mu:#8f9cab;--gr:#22c55e}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--dk);color:var(--tx)}
+a{text-decoration:none;color:inherit}button,input{font-family:inherit}
+.w{max-width:1000px;margin:0 auto;padding:0 16px}
+.hd{padding:80px 0 20px;text-align:center}
+.hd h1{font-size:clamp(20px,3.8vw,30px);font-weight:900}
+.hd p{color:var(--mu);font-size:13px;margin-top:6px;line-height:2}
+.srch{display:block;width:min(460px,92vw);margin:18px auto;background:#0e141c;border:1.5px solid var(--ln);border-radius:99px;color:var(--tx);padding:13px 20px;font-size:14px;outline:none;text-align:center}
+.srch:focus{border-color:var(--o)}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:13px}
+.stc{background:var(--cd);border:1px solid var(--ln);border-radius:17px;padding:19px 15px;text-align:center;transition:.25s;position:relative}
+.stc:hover{transform:translateY(-4px);border-color:var(--ic);box-shadow:0 12px 30px color-mix(in srgb,var(--ic) 30%,transparent)}
+.stc .em{font-size:34px}.stc b{font-size:13.5px;display:block;margin:7px 0 2px}
+.stc small{font-size:10.5px;color:var(--mu);display:block}
+.stc .live{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:10px;font-weight:900;color:var(--ic);background:color-mix(in srgb,var(--ic) 12%,transparent);border-radius:99px;padding:3px 11px}
+.stc .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gr);animation:bk 1.6s infinite}
+@keyframes bk{50%{opacity:.3}}
+.stc .open{display:block;margin-top:9px;background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-size:11px;font-weight:900;border-radius:9px;padding:8px}
+.cta{max-width:640px;margin:40px auto 0;background:var(--cd);border:1px dashed var(--o);border-radius:18px;padding:24px;text-align:center}
+.cta h3{font-size:15.5px;font-weight:900}.cta p{font-size:12.5px;color:var(--mu);margin:7px 0 14px;line-height:2}
+.cta a{display:inline-block;background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;font-size:13px;border-radius:11px;padding:11px 24px}
+footer{padding:26px 0 60px;text-align:center;color:var(--mu);font-size:11px}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="hd">
+    <h1>🛒 فروشگاه‌های آنلاین سایا</h1>
+    <p>فروشگاه‌هایی که با منشی هوشمند سایا ۲۴ ساعته می‌فروشند —<br>روی هر کدام کلیک کنید، مستقیم وارد فروشگاهشان می‌شوید</p>
+    <input class="srch" id="q" placeholder="🔍 جستجوی فروشگاه یا شهر..." oninput="flt()">
+  </div>
+  <div class="gr" id="gr"></div>
+  <div class="cta">
+    <h3>فروشگاه شما هم می‌تواند این‌جا باشد 🧞</h3>
+    <p>۴۸ ساعته دموی اختصاصی رایگان — با اجناس نمونه صنف خودتان.<br>۳ فروشگاه اول هر محله: راه‌اندازی کامل رایگان.</p>
+    <a href="/pricing.html">🧞 درخواست دموی اختصاصی</a>
+  </div>
+</div>
+<footer>© سایا — چراغ جادوی کسب‌وکار 🧞</footer>
+<script>
+const S=[
+ ['⚙️','#f59e0b','بازرگانی نمونه ابزار','مشهد — ۱۵ خرداد','عمده ابزار و یراق','tool'],
+ ['🧴','#0f9d8f','فروشگاه نمونه بهداشتی','مشهد — احمدآباد','لوازم بهداشتی','hyg'],
+ ['🌾','#7c8f3a','پخش نمونه غذایی','مشهد — کاشانی','مواد غذایی','food'],
+ ['🚗','#e01e2f','یدکی نمونه','تهران — چراغ‌برق','لوازم یدکی','auto'],
+ ['🌹','#e0608e','گل‌فروشی نمونه','تهران — ولیعصر','گل و تاج عروس','flow'],
+ ['🌿','#b08968','عطاری نمونه','مشهد — بازار','عطاری و زعفران','herb']];
+function flt(){const q=(qy.value||'').trim();
+ gr.innerHTML=S.filter(s=>!q||s[2].includes(q)||s[3].includes(q)||s[4].includes(q)).map(s=>
+ `<div class="stc" style="--ic:${s[1]}">
+   <span class="em">${s[0]}</span><b>${s[2]}</b><small>${s[3]} • ${s[4]}</small>
+   <span class="live">آنلاین</span>
+   <a class="open" href="/demo.html?p=${s[5]}&s=${encodeURIComponent(s[2].replace('نمونه ',''))}&c=${encodeURIComponent(s[3].split(' — ')[0])}">ورود به فروشگاه ↗</a>
+  </div>`).join('')||'<p style="text-align:center;color:var(--mu);grid-column:1/-1;padding:30px">فروشگاهی با این اسم پیدا نشد 🙏</p>'}
+flt();
+/* ناوبری پایین */
+const nb=document.createElement('div');
+nb.style.cssText='position:fixed;bottom:0;inset-inline:0;z-index:95;background:#10161df5;backdrop-filter:blur(14px);border-top:1px solid #242f3c;display:flex';
+nb.innerHTML=[['/index.html','🏠','خانه'],['/demo.html','🎬','دمو'],['/pricing.html','💰','تعرفه'],['/stores.html','🛒','فروشگاه‌ها'],['/login.html','🔐','ورود'],['/ledger.html','💼','دفتر']]
+ .map(m=>`<a href="${m[0]}" style="flex:1;text-align:center;padding:9px 2px;font-size:9.5px;font-weight:800;color:${location.pathname.endsWith(m[0])?'var(--o)':'var(--mu)'}"><span style="display:block;font-size:16px">${m[1]}</span>${m[2]}</a>`).join('');
+document.body.appendChild(nb);document.body.style.paddingBottom='58px';
+</script>
+</body>
+</html>
