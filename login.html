@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial=1">
+<title>ورود مشتریان سایا</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+:root{--o:#f59e0b;--o2:#ea580c;--gd:#fbbf24;--dk:#080c12;--cd:#131b25;--ln:#242f3c;--tx:#e9eef4;--mu:#8f9cab;--gr:#22c55e}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--dk);color:var(--tx);display:grid;place-items:center;min-height:100vh}
+button,input{font-family:inherit}a{text-decoration:none;color:inherit}
+.box{width:min(420px,92vw);background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:32px 26px;text-align:center;margin:20px 0}
+.lg{font-weight:900;font-size:22px;color:var(--gd);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
+.lg small{font-size:9.5px;color:var(--mu);display:block;font-weight:700}
+h1{font-size:17px;font-weight:900;margin:14px 0 4px}
+.s{font-size:12px;color:var(--mu);margin-bottom:22px;line-height:1.9}
+.lbl{font-size:12px;font-weight:800;display:block;margin:14px 0 5px;text-align:start}
+.in{width:100%;background:#0e141c;border:1.5px solid var(--ln);border-radius:11px;color:var(--tx);padding:12px 14px;font-size:15px;outline:none;text-align:center;letter-spacing:1px;transition:.2s}
+.in:focus{border-color:var(--o)}
+.btn{width:100%;margin-top:16px;background:linear-gradient(135deg,var(--o),var(--o2));color:#1a1208;font-weight:900;font-size:14.5px;border-radius:12px;padding:12px;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.stp{display:flex;gap:6px;justify-content:center;margin-bottom:16px}
+.stp span{font-size:10px;font-weight:800;color:var(--mu);background:#ffffff08;border-radius:99px;padding:4px 11px}
+.stp span.on{background:#f59e0b18;color:var(--o)}
+.hid{display:none}
+.ok{background:#22c55e14;border:1px solid #22c55e55;border-radius:14px;padding:20px;margin-top:14px}
+.ok .em{font-size:40px}.ok p{font-size:12.5px;color:var(--mu);line-height:2;margin-top:8px}
+.lnks{display:flex;gap:8px;margin-top:16px}
+.lnks a{flex:1;border:1px solid var(--ln);border-radius:10px;padding:9px;font-size:11.5px;font-weight:800}
+.lnks a:hover{border-color:var(--o);color:var(--o)}
+.err{color:#fca5a5;font-size:11.5px;margin-top:8px;display:none}
+.bk{display:inline-block;margin-top:18px;font-size:11.5px;font-weight:800;color:var(--mu)}
+.bk:hover{color:var(--o)}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="lg">🧞 سایا<small>چراغ جادوی کسب‌وکار</small></div>
+  <h1>ورود مشتریان سایا</h1>
+  <p class="s">گزارش صبح، دفتر حساب‌کتاب، باتری منشی و گفتگوها — همه از این‌جا در دسترس شماست</p>
+
+  <div id="st1">
+    <div class="stp"><span class="on">۱. شماره</span><span>۲. کد</span><span>۳. ورود</span></div>
+    <label class="lbl">شماره موبایل ثبت‌شده</label>
+    <input class="in" id="ph" inputmode="tel" placeholder="۰۹..." maxlength="11">
+    <div class="err" id="e1">شماره معتبر نیست — با ۰۹ شروع و ۱۱ رقم باشد</div>
+    <button class="btn" onclick="st1()">کد تایید بفرست</button>
+  </div>
+
+  <div id="st2" class="hid">
+    <div class="stp"><span>۱. شماره</span><span class="on">۲. کد</span><span>۳. ورود</span></div>
+    <label class="lbl">کد ۵ رقمی پیامک‌شده</label>
+    <input class="in" id="cd" inputmode="numeric" maxlength="5" placeholder="— — — — —">
+    <div class="err" id="e2">کد اشتباه است</div>
+    <button class="btn" onclick="st2()">ورود</button>
+  </div>
+
+  <div id="st3" class="hid">
+    <div class="stp"><span>۱. شماره</span><span>۲. کد</span><span class="on">۳. ورود</span></div>
+    <div class="ok">
+      <div class="em">🔐</div>
+      <h1 style="font-size:15px;margin-top:8px">هویت شما تایید شد</h1>
+      <p>پنل وب شما همراه با راه‌اندازی سرور فعال می‌شود و همین آدرس، پنل شما خواهد بود.<br>
+      <b style="color:var(--tx)">فعلاً:</b> گزارش صبح و گفتگوها از تلگرام می‌رسد.</p>
+      <div class="lnks">
+        <a href="/ledger.html">💼 حساب‌کتاب (نمایشی)</a>
+        <a href="/">🏠 سایت اصلی</a>
+        <a href="https://t.me/ZSELL_SAYA_bot" target="_blank">✈️ بات منشی</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="bk" href="/">→ بازگشت به سایت اصلی</a>
+</div>
+
+<script>
+const DEMO_CODE='14829';
+function st1(){
+  let p=ph.value.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/\D/g,'');
+  if(p.startsWith('98'))p='0'+p.slice(2);
+  if(!/^09\d{9}$/.test(p)){e1.style.display='block';return}
+  e1.style.display='none';
+  st1x.classList.add('hid');st2x.classList.remove('hid');
+}
+function st2(){
+  if(cd.value!==DEMO_CODE){e2.style.display='block';return}
+  st2x.classList.add('hid');st3x.classList.remove('hid');
+}
+document.body.insertAdjacentHTML('beforeend','<span id="st1x" hidden></span><span id="st2x" hidden></span><span id="st3x" hidden></span>');
+const fix=()=>{st1x.remove();document.getElementById('st1').id='st1x0'};
+</script>
+<script>
+/* اصلاح id تداخلی — ساده و مستقیم */
+document.addEventListener('DOMContentLoaded',function(){
+  var s1=document.getElementById('st1'),s2=document.getElementById('st2'),s3=document.getElementById('st3');
+  window.go1=function(){
+    var p=ph.value.replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)}).replace(/\D/g,'');
+    if(p.startsWith('98'))p='0'+p.slice(2);
+    if(!/^09\d{9}$/.test(p)){e1.style.display='block';return}
+    e1.style.display='none';s1.classList.add('hid');s2.classList.remove('hid');
+  };
+  window.go2=function(){
+    if(cd.value!==DEMO_CODE){e2.style.display='block';return}
+    s2.classList.add('hid');s3.classList.remove('hid');
+  };
+});
+</script>
+<script>
+/* اتصال دکمه‌ها به توابع درست */
+document.querySelector('#st1 .btn').onclick=function(){go1()};
+document.querySelector('#st2 .btn').onclick=function(){go2()};
+</script>
+</body>
+</html>
